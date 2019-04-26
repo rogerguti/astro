@@ -19,7 +19,7 @@ from mpl_toolkits.mplot3d import proj3d
 from scipy.integrate import solve_ivp, odeint
 
 from astropy import constants as const
-import jplephem as jpl
+import spiceypy as spice
 
 
 # Import personal packages and modules
@@ -35,10 +35,10 @@ Y0 = define_initial_conditions()
 orbit = odeint(three_body, Y0, time)
 
 # Unpacking of variables from ode
-earth_x, earth_y, earth_z, moon_x, moon_y, moon_z, sc_x, sc_y, sc_z, earth_vx, earth_vy, earth_vz, moon_vx, moon_vy, moon_vz, sc_vx, sc_vy, sc_vz = orbit.T
+sun_x, sun_y, sun_z, asteroid_x, asteroid_y, asteroid_z, sc_x, sc_y, sc_z, sun_vx, sun_vy, sun_vz, asteroid_vx, asteroid_vy, asteroid_vz, sc_vx, sc_vy, sc_vz = orbit.T
 
 
-# Wrapping up and plotting results
+# Plotting results and wrapping up
 
 """ fig = plt.figure(1)
 ax = fig.add_subplot(111, projection='3d')
@@ -56,12 +56,26 @@ ax.plot(moon_x, moon_y, moon_z, color="r", label="Orbit")
 set_axes_equal(ax)
 plt.show() """
 
-plt.plot(earth_x, earth_y)
-plt.plot(moon_x, moon_y)
-plt.plot(sc_x, sc_y)
+
+fig = plt.figure(figsize=(9, 9))
+ax = fig.add_subplot(111, projection='3d')
+ax.plot(asteroid_x, asteroid_y, asteroid_z)
+ax.set_aspect('equal')
+plt.title('SpiceyPy Cassini Position Example from Jun 20, 2004 to Dec 1, 2005')
 plt.show()
+
+
+#plt.plot(sun_x, sun_y)
+# plt.plot(asteroid_x, asteroid_y)
+# plt.plot(sc_x, sc_y)
+# plt.show()
 
 # plt.plot(time, moon_vx)
 # plt.plot(time, moon_vy)
 # plt.plot(time, moon_vz)
 # plt.show()
+
+
+
+# Unloading the Meta-Kernel
+spice.unload("./sun_asteroidK.tm")
