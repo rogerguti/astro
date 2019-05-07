@@ -25,11 +25,14 @@ import spiceypy as spice
 # Import personal packages and modules
 from astro_equations.solar_system_variables import *
 from astro_equations.support_functions_general import set_axes_equal
-from astro_equations.support_functions_astro import kepler_third_law_omega, distance, f_potential, three_body, define_initial_conditions
+from astro_equations.support_functions_astro import kepler_third_law_omega, distance, f_potential, three_body, define_initial_conditions, eccentricity
 
 
 # Define initial conditions for the ode
 Y0 = define_initial_conditions()
+
+print("len time = " , len(time))
+print("time = " , time[0], ", " , time[-1])
 
 # Integration
 orbit = odeint(three_body, Y0, time)
@@ -57,6 +60,25 @@ set_axes_equal(ax)
 plt.show() """
 
 
+time1 = 0
+time2 = int(len(time)/2)
+time3 = len(time) - 1
+
+test1 = eccentricity(asteroid_x[time1], asteroid_y[time1], asteroid_z[time1], asteroid_vx[time1], asteroid_vy[time1], asteroid_vz[time1])
+test2 = eccentricity(asteroid_x[time2], asteroid_y[time2], asteroid_z[time2], asteroid_vx[time2], asteroid_vy[time2], asteroid_vz[time2])
+test3 = eccentricity(asteroid_x[time3], asteroid_y[time3], asteroid_z[time3], asteroid_vx[time3], asteroid_vy[time3], asteroid_vz[time3])
+
+magtest1 = np.linalg.norm(test1)
+magtest2 = np.linalg.norm(test2)
+magtest3 = np.linalg.norm(test3)
+
+print("magtest1 = " , magtest1)
+print("magtest2 = " , magtest2)
+print("magtest3 = " , magtest3)
+print("len time = " , len(time))
+print("time = " , time[0], ", " , time[-1])
+
+'''
 r_max = 0
 r_min = 100000000000000000000000000000000000000
 
@@ -72,13 +94,15 @@ for i in range(len(asteroid_x)):
 
 eccentricity = m.sqrt(1-(r_min**2/r_max**2))
 
-orbit_sc_x = sc_x - asteroid_x
-orbit_sc_y = sc_y - asteroid_y
-orbit_sc_z = sc_z - asteroid_z
-
 print("r_max: ", r_max)
 print("r_min: ", r_min)
 print("eccentricity: ", eccentricity)
+
+'''
+
+orbit_sc_x = sc_x - asteroid_x
+orbit_sc_y = sc_y - asteroid_y
+orbit_sc_z = sc_z - asteroid_z
 
 ryugu_circleplot1 = plt.Circle((0, 0), 500, color='r')
 ryugu_circleplot2 = plt.Circle((0, 0), 500, color='r')
@@ -99,27 +123,24 @@ ax.set_xlabel('X')
 ax.set_ylabel('Y')
 ax.set_zlabel('Z')
 ax.set_aspect('equal')
-plt.title('Orbit of the marker around Ryugu during ' + str(year_in_seconds/12))
+plt.title('Orbit of the marker around Ryugu during ' + str(integration_time/ (3600 * 24)) + " days")
 
 fig2 = plt.figure(2)
 ax2 = fig2.add_subplot(131)
-#ax2 = fig2.add_subplot
-ax2.add_artist(ryugu_circleplot1)
 ax2.plot(orbit_sc_x, orbit_sc_y)
+ax2.add_artist(ryugu_circleplot1)
 ax2.set_xlabel('X')
 ax2.set_ylabel('Y')
 ax2.set_aspect('equal')
 ax2 = fig2.add_subplot(132)
-#ax3 = fig2.add_subplot
-ax2.add_artist(ryugu_circleplot2)
 ax2.plot(orbit_sc_x, orbit_sc_z)
+ax2.add_artist(ryugu_circleplot2)
 ax2.set_xlabel('X')
 ax2.set_ylabel('Z')
 ax2.set_aspect('equal')
 ax2 = fig2.add_subplot(133)
-#ax4 = fig2.add_subplot
-ax2.add_artist(ryugu_circleplot3)
 ax2.plot(orbit_sc_y, orbit_sc_z)
+ax2.add_artist(ryugu_circleplot3)
 ax2.set_xlabel('Y')
 ax2.set_ylabel('Z')
 ax2.set_aspect('equal')

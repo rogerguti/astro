@@ -135,20 +135,36 @@ def define_initial_conditions():
       dY: time derivative of the state vector that needs to be integrated
     '''
 
-    sc_initial_x = asteroid_initial_pos_and_vel[0]+866
-    sc_initial_y = asteroid_initial_pos_and_vel[1]+866
-    sc_initial_z = asteroid_initial_pos_and_vel[2]+866
-    sc_initial_vx = asteroid_initial_pos_and_vel[3]+0.10
-    sc_initial_vy = asteroid_initial_pos_and_vel[4]
-    sc_initial_vz = asteroid_initial_pos_and_vel[5]
+    sc_initial_x = asteroid_initial_pos_and_vel[0]-sun_initial_pos_and_vel[0]+866
+    sc_initial_y = asteroid_initial_pos_and_vel[1]-sun_initial_pos_and_vel[1]+866
+    sc_initial_z = asteroid_initial_pos_and_vel[2]-sun_initial_pos_and_vel[2]+866
+    sc_initial_vx = asteroid_initial_pos_and_vel[3]-sun_initial_pos_and_vel[3]+0.15
+    sc_initial_vy = asteroid_initial_pos_and_vel[4]-sun_initial_pos_and_vel[4]
+    sc_initial_vz = asteroid_initial_pos_and_vel[5]-sun_initial_pos_and_vel[5]
 
     sc_initial_pos_and_vel = [sc_initial_x, sc_initial_y, sc_initial_z, sc_initial_vx, sc_initial_vy, sc_initial_vz]
 
     Y0 = [0, 0, 0,          # sun position
-          asteroid_initial_pos_and_vel[0], asteroid_initial_pos_and_vel[1], asteroid_initial_pos_and_vel[2],             # moon position
+          asteroid_initial_pos_and_vel[0]-sun_initial_pos_and_vel[0], asteroid_initial_pos_and_vel[1]-sun_initial_pos_and_vel[1], asteroid_initial_pos_and_vel[2]-sun_initial_pos_and_vel[2],             # moon position
           sc_initial_pos_and_vel[0], sc_initial_pos_and_vel[1], sc_initial_pos_and_vel[2],                   # sc position
           0, 0, 0,       # sun velocity
-          asteroid_initial_pos_and_vel[3], asteroid_initial_pos_and_vel[4], asteroid_initial_pos_and_vel[5],          # moon velocity
+          asteroid_initial_pos_and_vel[3]-sun_initial_pos_and_vel[3], asteroid_initial_pos_and_vel[4]-sun_initial_pos_and_vel[4], asteroid_initial_pos_and_vel[5]-sun_initial_pos_and_vel[5],          # moon velocity
           sc_initial_pos_and_vel[3], sc_initial_pos_and_vel[4], sc_initial_pos_and_vel[5]]                # sc velocity
 
     return Y0
+
+
+def eccentricity(pos_x, pos_y, pos_z, vel_x, vel_y, vel_z):
+
+  pos_vector = np.array([pos_x, pos_y, pos_z])
+  vel_vector = np.array([vel_x, vel_y, vel_z])
+
+  mag_pos = np.linalg.norm(pos_vector)
+  mag_vel = np.linalg.norm(vel_vector)
+
+  evec_num1 = (mag_vel**2 - (mu_sun / mag_pos)) * pos_vector
+  evec_num2 = np.dot(pos_vector,vel_vector) * vel_vector
+
+  evec =  (evec_num1 - evec_num2) / mu_sun
+
+  return evec

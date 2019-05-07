@@ -30,7 +30,10 @@ asteroid_initial_pos_and_vel, asteroid_ltime = spice.spkezr('2162173', manoeuvre
 asteroid_initial_pos_and_vel *= 1000
 
 astronomical_unit = 149597870700
-year_in_seconds = 3600 * 24 * 365 * 2
+year_in_seconds = 3600 * 24 * 365
+
+integration_time = year_in_seconds / 12
+integration_steps = int(integration_time * 2 / 10) # Every 5 seconds
 
 earth_radius = 6371000
 
@@ -56,4 +59,4 @@ iss_mean_distance = 405000
 theta = 0
 
 # Time
-time = np.linspace(0, year_in_seconds/12, int((2 * year_in_seconds)/10))
+time = np.linspace(0, integration_time, integration_steps)
