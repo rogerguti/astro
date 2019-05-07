@@ -97,16 +97,16 @@ def three_body(Y, t):
 
     # distances between objects
     r_sun_asteroid = distance(Y[0], Y[1], Y[2], Y[3], Y[4], Y[5])
-    # r_sun_sc = distance(Y[0], Y[1], Y[2], Y[6], Y[7], Y[8])
-    # r_asteroid_sc = distance(Y[3], Y[4], Y[5], Y[6], Y[7], Y[8])
+    r_sun_sc = distance(Y[0], Y[1], Y[2], Y[6], Y[7], Y[8])
+    r_asteroid_sc = distance(Y[3], Y[4], Y[5], Y[6], Y[7], Y[8])
 
     # Sun velocity
     dY[9] = 0
     dY[10] = 0
     dY[11] = 0
-    # dY[9] = f_potential(Y[3], Y[0], r_sun_asteroid, mu_asteroid)
-    # dY[10] = f_potential(Y[4], Y[1], r_sun_asteroid, mu_asteroid)
-    # dY[11] = f_potential(Y[5], Y[2], r_sun_asteroid, mu_asteroid)
+    #dY[9] = f_potential(Y[3], Y[0], r_sun_asteroid, mu_asteroid)
+    #dY[10] = f_potential(Y[4], Y[1], r_sun_asteroid, mu_asteroid)
+    #dY[11] = f_potential(Y[5], Y[2], r_sun_asteroid, mu_asteroid)
 
     # Asteroid velocity
     dY[12] = f_potential(Y[0], Y[3], r_sun_asteroid, mu_sun)
@@ -114,12 +114,12 @@ def three_body(Y, t):
     dY[14] = f_potential(Y[2], Y[5], r_sun_asteroid, mu_sun)
 
     # Spacecraft velocity
-    dY[15] = 0
-    dY[16] = 0
-    dY[17] = 0
-    # dY[15] = f_potential(Y[0], Y[6], r_sun_sc, mu_sun) + f_potential(Y[3], Y[6], r_asteroid_sc, mu_asteroid)
-    # dY[16] = f_potential(Y[1], Y[7], r_sun_sc, mu_sun) + f_potential(Y[4], Y[7], r_asteroid_sc, mu_asteroid)
-    # dY[17] = f_potential(Y[2], Y[8], r_sun_sc, mu_sun) + f_potential(Y[5], Y[8], r_asteroid_sc, mu_asteroid)
+    #dY[15] = 0
+    #dY[16] = 0
+    #dY[17] = 0
+    dY[15] = f_potential(Y[0], Y[6], r_sun_sc, mu_sun) + f_potential(Y[3], Y[6], r_asteroid_sc, mu_asteroid)
+    dY[16] = f_potential(Y[1], Y[7], r_sun_sc, mu_sun) + f_potential(Y[4], Y[7], r_asteroid_sc, mu_asteroid)
+    dY[17] = f_potential(Y[2], Y[8], r_sun_sc, mu_sun) + f_potential(Y[5], Y[8], r_asteroid_sc, mu_asteroid)
 
     return dY
 
@@ -135,18 +135,20 @@ def define_initial_conditions():
       dY: time derivative of the state vector that needs to be integrated
     '''
 
-    sc_initial_x = asteroid_initial_pos_and_vel[0]+10
-    sc_initial_y = asteroid_initial_pos_and_vel[1]+10
-    sc_initial_z = asteroid_initial_pos_and_vel[2]+10
-    sc_initial_vx = asteroid_initial_pos_and_vel[3]
+    sc_initial_x = asteroid_initial_pos_and_vel[0]+866
+    sc_initial_y = asteroid_initial_pos_and_vel[1]+866
+    sc_initial_z = asteroid_initial_pos_and_vel[2]+866
+    sc_initial_vx = asteroid_initial_pos_and_vel[3]+0.10
     sc_initial_vy = asteroid_initial_pos_and_vel[4]
     sc_initial_vz = asteroid_initial_pos_and_vel[5]
 
+    sc_initial_pos_and_vel = [sc_initial_x, sc_initial_y, sc_initial_z, sc_initial_vx, sc_initial_vy, sc_initial_vz]
+
     Y0 = [0, 0, 0,          # sun position
           asteroid_initial_pos_and_vel[0], asteroid_initial_pos_and_vel[1], asteroid_initial_pos_and_vel[2],             # moon position
-          0, 0, 0,                   # sc position
+          sc_initial_pos_and_vel[0], sc_initial_pos_and_vel[1], sc_initial_pos_and_vel[2],                   # sc position
           0, 0, 0,       # sun velocity
           asteroid_initial_pos_and_vel[3], asteroid_initial_pos_and_vel[4], asteroid_initial_pos_and_vel[5],          # moon velocity
-          0, 0, 0]                # sc velocity
+          sc_initial_pos_and_vel[3], sc_initial_pos_and_vel[4], sc_initial_pos_and_vel[5]]                # sc velocity
 
     return Y0

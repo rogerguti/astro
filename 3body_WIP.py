@@ -57,11 +57,74 @@ set_axes_equal(ax)
 plt.show() """
 
 
-fig = plt.figure(figsize=(9, 9))
-ax = fig.add_subplot(111, projection='3d')
-ax.plot(asteroid_x, asteroid_y, asteroid_z)
+r_max = 0
+r_min = 100000000000000000000000000000000000000
+
+for i in range(len(asteroid_x)):
+
+    r_new = distance(sun_x[i], sun_y[i], sun_z[i], asteroid_x[i], asteroid_y[i], asteroid_z[i])
+
+    if r_new > r_max:
+        r_max = r_new
+    if r_new < r_min:
+        r_min = r_new
+
+
+eccentricity = m.sqrt(1-(r_min**2/r_max**2))
+
+orbit_sc_x = sc_x - asteroid_x
+orbit_sc_y = sc_y - asteroid_y
+orbit_sc_z = sc_z - asteroid_z
+
+print("r_max: ", r_max)
+print("r_min: ", r_min)
+print("eccentricity: ", eccentricity)
+
+ryugu_circleplot1 = plt.Circle((0, 0), 500, color='r')
+ryugu_circleplot2 = plt.Circle((0, 0), 500, color='r')
+ryugu_circleplot3 = plt.Circle((0, 0), 500, color='r')
+
+fig1 = plt.figure(1, figsize=(9, 9))
+ax = fig1.add_subplot(111, projection='3d')
+ax.plot(orbit_sc_x, orbit_sc_y, orbit_sc_z)
+# draw sphere
+u = np.linspace(0, 2 * np.pi, 100)
+v = np.linspace(0, np.pi, 100)
+x = 500 * np.outer(np.cos(u), np.sin(v))
+y = 500 * np.outer(np.sin(u), np.sin(v))
+z = 500 * np.outer(np.ones(np.size(u)), np.cos(v))
+ax.plot_surface(x, y, z, color='r')
+#ax.plot(sc_x, sc_y, sc_z)
+ax.set_xlabel('X')
+ax.set_ylabel('Y')
+ax.set_zlabel('Z')
 ax.set_aspect('equal')
-plt.title('SpiceyPy Cassini Position Example from Jun 20, 2004 to Dec 1, 2005')
+plt.title('Orbit of the marker around Ryugu during ' + str(year_in_seconds/12))
+
+fig2 = plt.figure(2)
+ax2 = fig2.add_subplot(131)
+#ax2 = fig2.add_subplot
+ax2.add_artist(ryugu_circleplot1)
+ax2.plot(orbit_sc_x, orbit_sc_y)
+ax2.set_xlabel('X')
+ax2.set_ylabel('Y')
+ax2.set_aspect('equal')
+ax2 = fig2.add_subplot(132)
+#ax3 = fig2.add_subplot
+ax2.add_artist(ryugu_circleplot2)
+ax2.plot(orbit_sc_x, orbit_sc_z)
+ax2.set_xlabel('X')
+ax2.set_ylabel('Z')
+ax2.set_aspect('equal')
+ax2 = fig2.add_subplot(133)
+#ax4 = fig2.add_subplot
+ax2.add_artist(ryugu_circleplot3)
+ax2.plot(orbit_sc_y, orbit_sc_z)
+ax2.set_xlabel('Y')
+ax2.set_ylabel('Z')
+ax2.set_aspect('equal')
+
+
 plt.show()
 
 

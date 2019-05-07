@@ -20,6 +20,7 @@ manoeuvre_time = spice.str2et('2019-10-01T10:00:00')
 
 
 # Get initial positions and velocities for Sun and asteroid
+# All units are meters and seconds
 sun_initial_pos_and_vel, sun_ltime = spice.spkezr('SUN', manoeuvre_time, 'ECLIPJ2000',
                                                   'NONE', 'SOLAR_SYSTEM_BARYCENTER')
 sun_initial_pos_and_vel *= 1000
@@ -55,4 +56,4 @@ iss_mean_distance = 405000
 theta = 0
 
 # Time
-time = np.linspace(0, year_in_seconds, int((2 * year_in_seconds)/10))
+time = np.linspace(0, year_in_seconds/12, int((2 * year_in_seconds)/10))
