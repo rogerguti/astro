@@ -1,0 +1,2404 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1" />
+<meta name="generator" content="pdoc 0.6.3" />
+<title>astro_equations.support_functions_3bp API documentation</title>
+<meta name="description" content="Created on Mon Apr 22 10:34:29 2019 …" />
+<link href='https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.0/normalize.min.css' rel='stylesheet'>
+<link href='https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/8.0.0/sanitize.min.css' rel='stylesheet'>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css" rel="stylesheet">
+<style>.flex{display:flex !important}body{line-height:1.5em}#content{padding:20px}#sidebar{padding:30px;overflow:hidden}.http-server-breadcrumbs{font-size:130%;margin:0 0 15px 0}#footer{font-size:.75em;padding:5px 30px;border-top:1px solid #ddd;text-align:right}#footer p{margin:0 0 0 1em;display:inline-block}#footer p:last-child{margin-right:30px}h1,h2,h3,h4,h5{font-weight:300}h1{font-size:2.5em;line-height:1.1em}h2{font-size:1.75em;margin:1em 0 .50em 0}h3{font-size:1.4em;margin:25px 0 10px 0}h4{margin:0;font-size:105%}a{color:#058;text-decoration:none;transition:color .3s ease-in-out}a:hover{color:#e82}.title code{font-weight:bold}h2[id^="header-"]{margin-top:2em}.ident{color:#900}pre code{background:#f8f8f8;font-size:.8em;line-height:1.4em}code{background:#f2f2f1;padding:1px 4px;overflow-wrap:break-word}h1 code{background:transparent}pre{background:#f8f8f8;border:0;border-top:1px solid #ccc;border-bottom:1px solid #ccc;margin:1em 0;padding:1ex}#http-server-module-list{display:flex;flex-flow:column}#http-server-module-list div{display:flex}#http-server-module-list dt{min-width:10%}#http-server-module-list p{margin-top:0}.toc ul,#index{list-style-type:none;margin:0;padding:0}#index code{background:transparent}#index h3{border-bottom:1px solid #ddd}#index ul{padding:0}#index h4{font-weight:bold}#index h4 + ul{margin-bottom:.6em}@media (min-width:200ex){#index .two-column{column-count:2}}@media (min-width:300ex){#index .two-column{column-count:3}}dl{margin-bottom:2em}dl dl:last-child{margin-bottom:4em}dd{margin:0 0 1em 3em}#header-classes + dl > dd{margin-bottom:3em}dd dd{margin-left:2em}dd p{margin:10px 0}.name{background:#eee;font-weight:bold;font-size:.85em;padding:5px 10px;display:inline-block;min-width:40%}.name:hover{background:#e0e0e0}.name > span:first-child{white-space:nowrap}.name.class > span:nth-child(2){margin-left:.4em}.inherited{color:#999;border-left:5px solid #eee;padding-left:1em}.inheritance em{font-style:normal;font-weight:bold}.desc h2{font-weight:400;font-size:1.25em}.desc h3{font-size:1em}.desc dt code{background:inherit}.source summary{color:#666;text-align:right;font-weight:400;font-size:.8em;text-transform:uppercase;cursor:pointer}.source pre{max-height:500px;overflow:auto;margin:0}.source pre code{font-size:12px;overflow:visible}.hlist{list-style:none}.hlist li{display:inline}.hlist li:after{content:',\2002'}.hlist li:last-child:after{content:none}.hlist .hlist{display:inline;padding-left:1em}img{max-width:100%}.admonition{padding:.1em .5em;margin-bottom:1em}.admonition-title{font-weight:bold}.admonition.note,.admonition.info,.admonition.important{background:#aef}.admonition.todo,.admonition.versionadded,.admonition.tip,.admonition.hint{background:#dfd}.admonition.warning,.admonition.versionchanged,.admonition.deprecated{background:#fd4}.admonition.error,.admonition.danger,.admonition.caution{background:lightpink}</style>
+<style media="screen and (min-width: 700px)">@media screen and (min-width:700px){#sidebar{width:30%}#content{width:70%;max-width:100ch;padding:3em 4em;border-left:1px solid #ddd}pre code{font-size:1em}.item .name{font-size:1em}main{display:flex;flex-direction:row-reverse;justify-content:flex-end}.toc ul ul,#index ul{padding-left:1.5em}.toc > ul > li{margin-top:.5em}}</style>
+<style media="print">@media print{#sidebar h1{page-break-before:always}.source{display:none}}@media print{*{background:transparent !important;color:#000 !important;box-shadow:none !important;text-shadow:none !important}a[href]:after{content:" (" attr(href) ")";font-size:90%}a[href][title]:after{content:none}abbr[title]:after{content:" (" attr(title) ")"}.ir a:after,a[href^="javascript:"]:after,a[href^="#"]:after{content:""}pre,blockquote{border:1px solid #999;page-break-inside:avoid}thead{display:table-header-group}tr,img{page-break-inside:avoid}img{max-width:100% !important}@page{margin:0.5cm}p,h2,h3{orphans:3;widows:3}h1,h2,h3,h4,h5,h6{page-break-after:avoid}}</style>
+</head>
+<body>
+<main>
+<article id="content">
+<header>
+<h1 class="title">Module <code>astro_equations.support_functions_3bp</code></h1>
+</header>
+<section id="section-intro">
+<p>Created on Mon Apr 22 10:34:29 2019</p>
+<p>@author: Roger Gutierrez Ramon</p>
+<p>Groups all astro support functions used for astrodynamics calculations</p>
+<details class="source">
+<summary>Source code</summary>
+<pre><code class="python"># -*- coding: utf-8 -*-
+&#34;&#34;&#34;
+Created on Mon Apr 22 10:34:29 2019
+
+@author: Roger Gutierrez Ramon
+
+Groups all astro support functions used for astrodynamics calculations
+&#34;&#34;&#34;
+
+import numpy as np
+import math as m
+
+import matplotlib.pyplot as plt
+import matplotlib.cm as cm
+import matplotlib.colors
+from matplotlib import animation
+from matplotlib.animation import FFMpegWriter
+from astro_equations.variables_3bp import *
+
+
+class FasterFFMpegWriter(FFMpegWriter):
+    &#34;&#34;&#34;
+      FFMpeg-pipe writer bypassing figure.savefig.
+    &#34;&#34;&#34;
+    def __init__(self, **kwargs):
+        &#34;&#34;&#34;Initialize the Writer object and sets the default frame_format.&#34;&#34;&#34;
+        super().__init__(**kwargs)
+        self.frame_format = &#39;argb&#39;
+
+    def grab_frame(self, **savefig_kwargs):
+        &#34;&#34;&#34;Grab the image information from the figure and save as a movie frame.
+
+        Doesn&#39;t use savefig to be faster: savefig_kwargs will be ignored.
+        &#34;&#34;&#34;
+        try:
+            # re-adjust the figure size and dpi in case it has been changed by the
+            # user.  We must ensure that every frame is the same size or
+            # the movie will not save correctly.
+            self.fig.set_size_inches(self._w, self._h)
+            self.fig.set_dpi(self.dpi)
+            # Draw and save the frame as an argb string to the pipe sink
+            self.fig.canvas.draw()
+            self._frame_sink().write(self.fig.canvas.tostring_argb())
+        except (RuntimeError, IOError) as e:
+            out, err = self._proc.communicate()
+            raise IOError(&#39;Error saving animation to file (cause: {0}) &#39;
+                          &#39;Stdout: {1} StdError: {2}. It may help to re-run &#39;
+                          &#39;with --verbose-debug.&#39;.format(e, out, err))
+
+
+def kepler_third_law_ang_vel(mu, r):
+    &#34;&#34;&#34;Calculates the circular angular velocity of the Kepler 2BP.
+    
+    Calculates the circular angular velocity of an object in the Kepler 2BP 
+    given the central mass parameter and the radius of the orbit.
+
+    Args:
+      mu: Central mass paramtere in SI.
+      r: Cicrcular radius of the orbit in SI.
+
+    Returns:
+      omega: Circular angular velocity in SI.
+    &#34;&#34;&#34;
+
+    omega = np.sqrt(mu / r**3)
+
+    return omega
+
+
+def distance(ref_object, Y, mu):
+    &#34;&#34;&#34;Calculates the distance between target and reference object.
+
+    Args:
+      ref_object (str): Which reference object, &#39;main&#39; or &#39;secondary&#39;.
+      Y: State vector for the spacecraft.
+      mu: Mass parameter of the system.
+      
+    Returns:
+      r: Distance between target and reference object.
+    &#34;&#34;&#34;
+
+    if ref_object == &#39;main&#39;:
+
+        r = np.sqrt((mu + Y[0])**2 + Y[1]**2 + Y[2])
+
+    elif ref_object == &#39;secondary&#39;:
+
+        r = np.sqrt((Y[0] - 1 + mu)**2 + Y[1]**2 + Y[2]**2)
+
+    return r
+
+
+def potential_dU(coord, Y, mu):
+    &#34;&#34;&#34;Calculates the derivative of the scalar potential U in each coordinate.
+    
+    Calculates the derivative of the scalar potential U that accounts for 
+    gravitational and centrifugal forces wrt the variable in &#39;coord&#39;.
+
+    Args:
+      coord: Variable wrt which to derivate the scalar potential U.
+      Y: State vector for the spacecraft.
+      mu: Mass constant of the system.
+
+    Returns:
+      du: Derivative of the potential U.
+    &#34;&#34;&#34;
+
+    if coord == &#39;x&#39;:
+
+        du = Y[0] - (1 - mu) * (Y[0] + mu) / (distance(
+            &#39;main&#39;, Y, mu)**3) - mu * (Y[0] - 1 + mu) / (distance(
+                &#39;secondary&#39;, Y, mu)**3)
+
+    elif coord == &#39;y&#39;:
+
+        du = Y[1] - (1 - mu) * Y[1] / (distance(
+            &#39;main&#39;, Y, mu)**3) - mu * Y[1] / (distance(&#39;secondary&#39;, Y, mu)**3)
+
+    elif coord == &#39;z&#39;:
+
+        du = -(1 - mu) * Y[2] / (distance(
+            &#39;main&#39;, Y, mu)**3) - mu * Y[2] / (distance(&#39;secondary&#39;, Y, mu)**3)
+
+    return du
+
+
+def state_vector_CR3BP(t, Y):
+    &#34;&#34;&#34;ODE for the circular restricted 3 body problem to numerically integrate.
+
+    Args:
+      Y: State vector for the objects.
+      t: Time vector with the time steps where the ode needs to integrate.
+
+    Returns:
+      dY: Time derivative of the state vector that needs to be integrated.
+    &#34;&#34;&#34;
+
+    dY = [0 for i in range(6)]
+
+    # Spacecraft position in rotating frame
+    dY[0] = Y[3]
+    dY[1] = Y[4]
+    dY[2] = Y[5]
+
+    # Spacecraft velocity
+    dY[3] = 2 * Y[4] + potential_dU(&#39;x&#39;, Y, mu)
+    dY[4] = -2 * Y[3] + potential_dU(&#39;y&#39;, Y, mu)
+    dY[5] = potential_dU(&#39;z&#39;, Y, mu)
+
+    return dY
+
+
+def define_initial_conditions(mu):
+    &#34;&#34;&#34;Defines the initial coordinates, time and other optional graphics bools.
+
+    Args:
+      mu: Mass parameter of the CR3BP.
+
+    Returns:
+      Y0: Initial conditions vector for the SC, XYZ VX VY VZ.
+      timeSpan: Tange of time to integrate.
+      timePoints: Times at which to store the computed solution.
+      boolZVC (bool): Boolean to plot the ZVC and Lagrange Points.
+      boolLagrange (bool): Boolean to plot only the Lagrange Points.
+      boolAnimation (list): List with information of the data as animation:
+
+        - (bool): True to create animation, otherwise False.
+
+        - (bool): True to save the animation, otherwise False.
+
+        - Type of animation (str): &#39;Standard&#39; or &#39;Comet&#39;-like.
+
+        - Reference System (str): &#39;Rotating&#39; or &#39;Inertial&#39;.
+    &#34;&#34;&#34;
+
+    rot_SCPos_initial = np.array([1 - mu, 0.0455,
+                                  0.0])  # SC position in rotating frame
+    rot_SCVel_initial = np.array([-0.5322, 0.2,
+                                  0.0])  # SC velocity in rotating frame
+    #rot_SCVel_initial = np.array([-0.4, 0.2, 0.0]) # SC velocity in rotating frame
+
+    Y0 = np.concatenate(
+        (rot_SCPos_initial, rot_SCVel_initial),
+        axis=None)  # SC position and velocity in rotating frame
+
+    timeSpan = [0, int(integration_time / adimTime)]
+    timePoints = np.linspace(timeSpan[0], timeSpan[1], 15000)
+
+    boolLagrange = False
+    boolZVC = False
+    boolAnimation = [
+        True, True, &#39;Comet&#39;, &#39;Inertial&#39;
+    ]  # Animation True/False, Save True/False, Type Standard/Comet, Ref.Frame
+    # Rotating/Inertial
+
+    return Y0, timeSpan, timePoints, boolZVC, boolLagrange, boolAnimation
+
+
+def eccentricity(pos_x, pos_y, pos_z, vel_x, vel_y, vel_z):
+
+    pos_vector = np.array([pos_x, pos_y, pos_z])
+    vel_vector = np.array([vel_x, vel_y, vel_z])
+
+    mag_pos = np.linalg.norm(pos_vector)
+    mag_vel = np.linalg.norm(vel_vector)
+
+    evec_num1 = (mag_vel**2 - (mu_Sun / mag_pos)) * pos_vector
+    evec_num2 = np.dot(pos_vector, vel_vector) * vel_vector
+
+    evec = (evec_num1 - evec_num2) / mu_Sun
+
+    return evec
+
+
+def calculate_lagrange_points(mu):
+    &#34;&#34;&#34;Calculates the position of the Lagrange Points of the CR3BP in the 
+      rotating frame.
+
+    Args:
+      mu: Adimensional mass parameter of the system.
+      
+    Returns:
+      L1, L2, L3, L4, L5: XY coordinates fo the Lagrange Points in the rotating 
+        frame.
+    &#34;&#34;&#34;
+
+    # L1 calculation
+    coefL1 = [
+        1, 4 * mu - 2, 6 * mu**2 - 6 * mu + 1,
+        4 * mu**3 - 6 * mu**2 + 4 * mu - 1,
+        mu**4 - 2 * mu**3 + 5 * mu**2 - 4 * mu + 2,
+        2 * mu**3 - 3 * mu**2 + 3 * mu - 1
+    ]
+    L1roots = np.roots(coefL1)
+    L1 = [0, 0]
+    for i in L1roots:
+        if np.isreal(i):
+            L1 = np.array([i.real, 0])
+
+    # L2 calculation
+    coefL2 = [
+        1, 4 * mu - 2, 6 * mu**2 - 6 * mu + 1,
+        4 * mu**3 - 6 * mu**2 + 2 * mu - 1,
+        mu**4 - 2 * mu**3 + mu**2 - 4 * mu + 2, 3 * mu - 3 * mu**2 - 1
+    ]
+    L2roots = np.roots(coefL2)
+    L2 = [0, 0]
+    for i in L2roots:
+        if np.isreal(i):
+            L2 = np.array([i.real, 0])
+
+    # L3 calculation
+    coefL3 = [
+        1, 4 * mu - 2, 6 * mu**2 - 6 * mu + 1,
+        4 * mu**3 - 6 * mu**2 + 2 * mu + 1,
+        mu**4 - 2 * mu**3 + mu**2 + 4 * mu - 2, 3 * mu**2 - 3 * mu + 1
+    ]
+    L3roots = np.roots(coefL3)
+    L3 = [0, 0]
+    for i in L3roots:
+        if np.isreal(i):
+            L3 = np.array([i.real, 0])
+
+    # L4 calculation
+    L4 = np.array([1 / 2 - mu, 1 / 2 * m.sqrt(3)])
+
+    # L5 calculation
+    L5 = np.array([1 / 2 - mu, -1 / 2 * m.sqrt(3)])
+
+    return np.array([L1, L2, L3, L4, L5])
+
+
+def calc_jacobi(x, y, z, vx, vy, vz, mu):
+    &#34;&#34;&#34;Calculates Jacobi&#39;s Constant given the position and velocities.
+
+    Args:
+      x,y,z: Position coordinates of the Spacecraft.
+      vx,vy,vz: Velocity of the spacecraft.
+      mu: Adimensional mass parameter of the system.
+      
+    Returns:
+      C: Jacobi&#39;s Constant.
+    &#34;&#34;&#34;
+
+    r1 = distance(&#39;main&#39;, [x, y, z], mu)
+    r2 = distance(&#39;secondary&#39;, [x, y, z], mu)
+    C = x**2 + y**2 + 2 * (1 - mu) / r1 + 2 * mu / r2 - (vx**2 + vy**2 + vz**2)
+
+    return C
+
+
+def plot_3D_potential(mu, mainPos, secondaryPos, **kwargs):
+    &#34;&#34;&#34;Plots the 3D Potential of the 3BP in the rotational axis.
+
+    Plots the 3D Potential (and optionally the Lagrange Points) of the 3BP in 
+    the rotational axis
+
+    Args:
+      mu: Adimensional mass parameter of the system.
+      mainPos: Position of the main, XYZ.
+      secondaryPos: Position of the secondary, XYZ.
+      **makeFigure (bool): Defaults to False. Boolean to make a separate figure 
+        (True), or include it in the calling function&#39;s figure (False).
+      **boolLagrange (bool): Defaults to True. Boolean to plot the Lagrange Points.
+    &#34;&#34;&#34;
+
+    makeFigure = kwargs.get(&#39;makeFigure&#39;, False)
+    boolLagrange = kwargs.get(&#39;boolLagrange&#39;, True)
+
+    # prepare mesh for contourplot
+    X, Y, Z = prepare_mesh_plot(bool3D=True)
+
+    massiveObjectsHeight = np.nanmax(Z) + 0.5
+    mainPos[2] = massiveObjectsHeight
+    secondaryPos[2] = massiveObjectsHeight
+
+    if makeFigure == True:
+        fig, ax = prepare_plot_CR3BP(mainPos, secondaryPos, bool3D=True)
+
+    if boolLagrange == True:
+        LP = plot_lagrange(mu,
+                           mainPos,
+                           secondaryPos,
+                           objectsHeight3D=massiveObjectsHeight,
+                           axes=ax)
+
+    surf = ax.plot_surface(X,
+                           Y,
+                           Z,
+                           cmap=cm.gnuplot,
+                           linewidth=0,
+                           antialiased=False)  # contour for CjL
+    ticks = np.linspace(np.nanmin(Z), np.nanmax(Z), 10)
+    cbar = plt.colorbar(surf)
+    cbar.set_label(&#39;- Jacobi Constant of ZVC&#39;)
+    cbar.set_ticks(ticks)
+
+    if makeFigure == True:
+        ax.legend(loc=&#39;upper left&#39;)
+        plt.title(&#39;Potential in the CR3BP&#39;)
+
+
+def plot_zero_velocity_curves(mu, mainPos, secondaryPos, **kwargs):
+    &#34;&#34;&#34;Plots the ZVC of the 3BP in the rotational axis.
+
+    Plots the ZVC (and optionally the Lagrange Points) of the 3BP in the 
+    rotational axis.
+
+    Args:
+      mu: Adimensional mass parameter of the system.
+      mainPos: Position of the main, XYZ.
+      secondaryPos: Position of the secondary, XYZ.
+      **makeFigure (bool): Defaults to False. Boolean to make a separate figure 
+        (True), or include it in the calling function&#39;s figure (False).
+      **boolLagrange (bool): Defaults to True. Boolean to plot the Lagrange Points.
+      **scStateVector: Defaults to None. Initial coordinates of the Spacecraft 
+        to calculate Jacobi&#39;s Constant.
+    &#34;&#34;&#34;
+
+    makeFigure = kwargs.get(&#39;makeFigure&#39;, False)
+    boolLagrange = kwargs.get(&#39;boolLagrange&#39;, True)
+    scStateVector = kwargs.get(&#39;scStateVector&#39;, None)
+
+    # prepare mesh for contourplot
+    X, Y, Z = prepare_mesh_plot()
+
+    if makeFigure == True:
+        fig, ax = prepare_plot_CR3BP(mainPos, secondaryPos)
+
+    if boolLagrange == True:
+        LP = plot_lagrange(mu, mainPos, secondaryPos)
+
+    if scStateVector == None:
+        jacobiConst1 = calc_jacobi(LP[0, 0], LP[0, 1], 0, 0, 0, 0, mu)
+        jacobiConst2 = calc_jacobi(LP[1, 0], LP[1, 1], 0, 0, 0, 0, mu)
+        jacobiConst3 = calc_jacobi(LP[2, 0], LP[2, 1], 0, 0, 0, 0, mu)
+        jacobiConst4 = calc_jacobi(LP[3, 0], LP[3, 1], 0, 0, 0, 0, mu)
+        jacobiConst5 = calc_jacobi(LP[4, 0], LP[4, 1], 0, 0, 0, 0, mu)
+
+        jacobiConstList = [jacobiConst3, jacobiConst2, jacobiConst1]
+
+        plt.contour(X, Y, Z, jacobiConstList,
+                    cmap=cm.gnuplot)  # contour for CjL
+
+    else:
+        jacobiConstSC = calc_jacobi(scStateVector[0], scStateVector[1],
+                                    scStateVector[2], scStateVector[3],
+                                    scStateVector[4], scStateVector[5], mu)
+        Z[(jacobiConstSC &lt;= Z[:, :]) | (Z[:, :] &lt;
+                                        (jacobiConstSC * 0.9))] = np.NaN
+
+        levels = np.linspace(np.nanmin(Z), np.nanmax(Z), 100)
+        ticks = np.linspace(np.nanmin(Z), np.nanmax(Z), 10)
+        plt.contourf(X, Y, Z, cmap=cm.gnuplot, levels=levels)
+        cbar = plt.colorbar()
+        cbar.set_label(&#39;Jacobi Constant of ZVC&#39;)
+        cbar.set_ticks(ticks)
+
+    if makeFigure == True:
+        ax.legend(loc=&#39;upper left&#39;)
+        plt.title(&#39;Zero Velocity Curves&#39;)
+
+
+def plot_lagrange(mu, mainPos, secondaryPos, **kwargs):
+    &#34;&#34;&#34;Plots the Lagrange Points in the 3BP in the rotational axis.
+
+    Args:
+      mu: Adimensional mass parameter of the system.
+      mainPos: Position of the main, XYZ.
+      secondaryPos: Position of the secondary, XYZ.
+      **makeFigure (bool): Defaults to False. Boolean to make a separate figure 
+        (True), or include it in the calling function&#39;s figure (False).
+      **objectsHeight3D: Defaults to None. Z coordinate for the objects in 3D plot.
+      **axes: Defaults to None. If 3D plot, the axes object needs to be passed.
+
+    Returns:
+      LP: Lagrange Points coordinates.
+    &#34;&#34;&#34;
+
+    makeFigure = kwargs.get(&#39;makeFigure&#39;, False)
+    objectsHeight3D = kwargs.get(&#39;objectsHeight3D&#39;, None)
+    ax = kwargs.get(&#39;axes&#39;, None)
+
+    LP = calculate_lagrange_points(mu)
+
+    if makeFigure == True:
+        fig, ax = prepare_plot_CR3BP(mainPos, secondaryPos)
+
+    if objectsHeight3D == None:
+        plt.scatter(LP[0, 0],
+                    LP[0, 1],
+                    marker=&#39;x&#39;,
+                    color=&#39;r&#39;,
+                    alpha=0.8,
+                    zorder=9,
+                    label=&#39;Lagrange Points&#39;)
+        plt.scatter(LP[1, 0],
+                    LP[1, 1],
+                    marker=&#39;x&#39;,
+                    color=&#39;r&#39;,
+                    alpha=0.8,
+                    zorder=9)
+        plt.scatter(LP[2, 0],
+                    LP[2, 1],
+                    marker=&#39;x&#39;,
+                    color=&#39;r&#39;,
+                    alpha=0.8,
+                    zorder=9)
+        plt.scatter(LP[3, 0],
+                    LP[3, 1],
+                    marker=&#39;x&#39;,
+                    color=&#39;r&#39;,
+                    alpha=0.8,
+                    zorder=9)
+        plt.scatter(LP[4, 0],
+                    LP[4, 1],
+                    marker=&#39;x&#39;,
+                    color=&#39;r&#39;,
+                    alpha=0.8,
+                    zorder=9)
+
+    else:
+        ax.scatter(LP[0, 0],
+                   LP[0, 1],
+                   objectsHeight3D,
+                   s=50,
+                   marker=&#39;x&#39;,
+                   color=&#39;r&#39;,
+                   alpha=0.8,
+                   label=&#39;Lagrange Points&#39;)
+        ax.scatter(LP[1, 0],
+                   LP[1, 1],
+                   objectsHeight3D,
+                   s=50,
+                   marker=&#39;x&#39;,
+                   color=&#39;r&#39;,
+                   alpha=0.8)
+        ax.scatter(LP[2, 0],
+                   LP[2, 1],
+                   objectsHeight3D,
+                   s=50,
+                   marker=&#39;x&#39;,
+                   color=&#39;r&#39;,
+                   alpha=0.8)
+        ax.scatter(LP[3, 0],
+                   LP[3, 1],
+                   objectsHeight3D,
+                   s=50,
+                   marker=&#39;x&#39;,
+                   color=&#39;r&#39;,
+                   alpha=0.8)
+        ax.scatter(LP[4, 0],
+                   LP[4, 1],
+                   objectsHeight3D,
+                   s=50,
+                   marker=&#39;x&#39;,
+                   color=&#39;r&#39;,
+                   alpha=0.8)
+        ax.text(LP[0, 0] - 0.05, LP[0, 1] - 0.15, objectsHeight3D, r&#39;L$_1$&#39;)
+        ax.text(LP[1, 0] + 0.05, LP[1, 1] - 0.05, objectsHeight3D, r&#39;L$_2$&#39;)
+        ax.text(LP[2, 0] - 0.2, LP[2, 1] - 0.05, objectsHeight3D, r&#39;L$_3$&#39;)
+        ax.text(LP[3, 0] - 0.05, LP[3, 1] + 0.05, objectsHeight3D, r&#39;L$_4$&#39;)
+        ax.text(LP[4, 0] - 0.05, LP[4, 1] - 0.15, objectsHeight3D, r&#39;L$_5$&#39;)
+
+    if makeFigure == True:
+        ax.legend(loc=&#39;upper left&#39;)
+        plt.title(&#39;Lagrange Points Position&#39;)
+
+    return LP
+
+
+def plot_CR3BP(mu, mainPos, secondaryPos, scStateVector, t_points, **kwargs):
+    &#34;&#34;&#34;Plots the CR3BP.
+
+    Args:
+      mu: Mass parameter of the system.
+      referenceSystem: Reference System in which to plot, &#39;Rotating&#39; or 
+        &#39;Inertial&#39;. 
+      mainPos: Position of the main, XYZ.
+      secondarypos: Position of the secondary, XYZ.
+      scStateVector: State vector of the SC, X Y Z VX VY VZ.
+      t_points: Vector with the time points where the state vectors are.
+      **boolZVC (bool): Defaults to False. Boolean to plot the ZVC and Lagrange 
+        Points.
+      **boolLagrange (bool): Defaults to False. Boolean to plot only the 
+        Lagrange Points.
+      **boolAnimation (list): List with information of the data as animation:
+
+        - (bool): Defaults to False. True to create animation, otherwise False.
+
+        - (bool): Defaults to False. True to save the animation, otherwise False.
+
+        - Type of animation (str): Defaults to &#39;Standard&#39;. Standard&#39; or 
+          &#39;Comet&#39;-like.
+
+        - Reference System (str): Defaults to &#39;Rotating&#39; or &#39;Inertial&#39;.
+    
+    Returns:
+        resultPlot: Plot object of the 3BP.
+    &#34;&#34;&#34;
+
+    boolZVC = kwargs.get(&#39;boolZVC&#39;, False)
+    boolLagrange = kwargs.get(&#39;boolLagrange&#39;, False)
+    boolAnimation = kwargs.get(&#39;boolAnimation&#39;,
+                               [False, False, &#39;Standard&#39;, &#39;Rotating&#39;])
+
+    fig, ax = prepare_plot_CR3BP(mainPos, secondaryPos)
+
+    if boolZVC == True:
+        plot_zero_velocity_curves(mu,
+                                  mainPos,
+                                  secondaryPos,
+                                  scStateVector=[
+                                      scStateVector[0, 0], scStateVector[1, 0],
+                                      scStateVector[2, 0], scStateVector[3, 0],
+                                      scStateVector[4, 0], scStateVector[5, 0]
+                                  ])
+
+    if boolLagrange == True:
+        LP = plot_lagrange(mu, mainPos, secondaryPos)
+
+    if boolAnimation[0] == True:
+        mainPos = np.tile(mainPos, (t_points.shape[0], 1)).T
+        secondaryPos = np.tile(secondaryPos, (t_points.shape[0], 1)).T
+
+        if boolAnimation[3] == &#39;Inertial&#39;:
+            mainPos = rotating_to_inertial_system(mainPos, adimAngVel,
+                                                  t_points)
+            secondaryPos = rotating_to_inertial_system(secondaryPos,
+                                                       adimAngVel, t_points)
+            scStateVector = rotating_to_inertial_system(
+                scStateVector[:3], adimAngVel, t_points)
+
+        resultPlot = plot_animation(fig,
+                                    ax,
+                                    mainPos,
+                                    secondaryPos,
+                                    scStateVector,
+                                    t_points,
+                                    animationType=boolAnimation[2],
+                                    animationSave=boolAnimation[1])
+
+    else:
+        ax.plot(scStateVector[0], scStateVector[1], label=&#39;SC Trajectory&#39;)
+        ax.scatter(mainPos[0],
+                   mainPos[1],
+                   marker=&#39;o&#39;,
+                   s=40,
+                   color=&#39;r&#39;,
+                   alpha=0.7,
+                   label=&#39;Primary&#39;)
+        ax.scatter(secondaryPos[0],
+                   secondaryPos[1],
+                   marker=&#39;o&#39;,
+                   s=20,
+                   color=&#39;g&#39;,
+                   alpha=0.7,
+                   label=&#39;Secondary&#39;)
+        finalTime, finalUnit = time_converter(t_points[-1] * adimTime,
+                                              &#39;seconds&#39;, &#39;days&#39;)
+        plt.text(0.05,
+                 0.05,
+                 f&#39;t = {finalTime:.2f} {finalUnit}&#39;,
+                 transform=ax.transAxes)
+        ax.legend(loc=0, fontsize=&#39;x-small&#39;)
+        plt.title(&#39;Orbit propagation for CR3BP (Earth - Moon)&#39;)
+        resultPlot = ax
+
+    return resultPlot
+
+
+def prepare_plot_CR3BP(mainPos, secondaryPos, **kwargs):
+    &#34;&#34;&#34;Prepares the axis and fig part of the CR3BP plots.
+
+    Args:
+      mainPos: Position of the main, XYZ.
+      secondarypos: Position of the secondary, XYZ.
+      **bool3D (bool): Defaults to False. Boolean to prepare for the 3D plot 
+        instead of the planar.
+    
+    Returns:
+      fig: Fig object of the plot.
+      ax: Axes object of the plot.
+    &#34;&#34;&#34;
+
+    bool3D = kwargs.get(&#39;bool3D&#39;, False)
+
+    if bool3D == True:
+        fig = plt.figure()
+        ax = fig.add_subplot(111, projection=&#39;3d&#39;)
+        ax = plt.gca(projection=&#39;3d&#39;)
+
+    else:
+        fig, ax = plt.subplots()
+        ax = plt.gca()
+
+    ax.set_xlim([-1.5, 1.5])
+    ax.set_ylim([-1.5, 1.5])
+    ax.set_xlabel(&#39;X&#39;)
+    ax.set_ylabel(&#39;Y&#39;)
+    ax.set_aspect(&#39;equal&#39;)
+
+    return fig, ax
+
+
+def prepare_mesh_plot(**kwargs):
+    &#34;&#34;&#34;Prepares the mesh for the potential calculations in the CR3BP plots.
+      
+    Args:
+      **bool3D (bool): Defaults to False. Boolean to prepare for the 3D plot 
+        instead of the planar.
+  
+    Returns:
+      X, Y, Z: Values for the mesh of the potential.
+    &#34;&#34;&#34;
+
+    bool3D = kwargs.get(&#39;bool3D&#39;, False)
+
+    # prepare mesh for contourplot
+    delta = 0.001
+    x = np.arange(-1.5, 1.5, delta)
+    y = np.arange(-1.5, 1.5, delta)
+    X, Y = np.meshgrid(x, y)
+    if bool3D == False:
+        Z = calc_jacobi(X, Y, 0, 0, 0, 0, mu)
+    else:
+        Z = -calc_jacobi(X, Y, 0, 0, 0, 0, mu)
+        Z[Z[:, :] &lt; (-7)] = -7
+
+    return X, Y, Z
+
+
+def plot_animation(fig, ax, mainPos, secondaryPos, scStateVector, t_points,
+                   **kwargs):
+    &#34;&#34;&#34;Plots the animation of the 3BP and optionally saves it.
+    
+    Args:
+      fig: Fig object of the plot.
+      ax: Axes object of the plot.
+      mainPos: Position of the main, XYZ.
+      secondarypos: Position of the secondary, XYZ.
+      scStateVector: State vector of the SC, X Y Z VX VY VZ.
+      t_points: Vector with the time points where the state vectors are.
+      **animationType (str); Defaults to &#39;Standard&#39;. &#39;Standard&#39; or &#39;Comet&#39;-like.
+      **animationSave (bool): Defaults to False. Boolean to save or not the 
+        animation.
+
+    Returns:
+      resultPlot: Animated plot object of the 3BP.
+    &#34;&#34;&#34;
+
+    animationType = kwargs.get(&#39;animationType&#39;, &#39;Standard&#39;)
+    animationSave = kwargs.get(&#39;animationSave&#39;, &#39;False&#39;)
+
+    mainPosition, = ax.plot([], [],
+                            marker=&#39;o&#39;,
+                            markersize=10,
+                            color=&#39;r&#39;,
+                            alpha=1,
+                            label=&#39;Primary&#39;)
+    secondaryPosition, = ax.plot([], [],
+                                 marker=&#39;o&#39;,
+                                 markersize=5,
+                                 color=&#39;g&#39;,
+                                 alpha=1,
+                                 label=&#39;Secondary&#39;)
+    scPositionHistory, = ax.plot([], [], c=&#39;b&#39;, zorder=9)
+    scPositionCurrent, = ax.plot([], [],
+                                 c=&#39;b&#39;,
+                                 marker=&#39;o&#39;,
+                                 markersize=2,
+                                 markerfacecolor=&#39;tab:orange&#39;,
+                                 markeredgecolor=&#39;tab:orange&#39;,
+                                 label=&#39;SC Trajectory&#39;,
+                                 zorder=10)
+    time_points = ax.text(0.05, 0.05, &#39;&#39;, transform=ax.transAxes)
+    ax.legend(loc=&#39;upper left&#39;)
+    plt.title(&#39;Orbit propagation for 3BP (Earth - Moon)&#39;)
+    timePoints, unit = time_converter(t_points * adimTime, &#39;seconds&#39;, &#39;days&#39;)
+
+    # Set up formatting for the movie files
+    Writer = animation.writers[&#39;ffmpeg&#39;]
+    writer = Writer(fps=100,
+                    metadata=dict(artist=&#39;Me&#39;),
+                    bitrate=1800,
+                    extra_args=[&#39;-vcodec&#39;, &#39;libx264&#39;])
+
+    def init():
+        &#34;&#34;&#34;initialize animation&#34;&#34;&#34;
+        scPositionCurrent.set_data([], [])
+        scPositionHistory.set_data([], [])
+        mainPosition.set_data([], [])
+        secondaryPosition.set_data([], [])
+        time_points.set_text(&#39;&#39;)
+
+        return scPositionCurrent, scPositionHistory, mainPosition, secondaryPosition, time_points
+
+    # animation function.  This will be called sequentially with the frame number
+    def animate(i):
+        time_points.set_text(f&#39;t = {timePoints[i]:.2f} {unit}&#39;)
+        mainPosition.set_data(mainPos[0, i], mainPos[1, i])
+        secondaryPosition.set_data(secondaryPos[0, i], secondaryPos[1, i])
+        if animationType == &#39;Standard&#39;:
+            scPositionCurrent.set_data(scStateVector[0, i],
+                                       scStateVector[1, i])
+            scPositionHistory.set_data(scStateVector[0, :i],
+                                       scStateVector[1, :i])
+        elif animationType == &#39;Comet&#39;:
+            scPositionCurrent.set_data(scStateVector[0, i],
+                                       scStateVector[1, i])
+            if i &lt; 500:
+                scPositionHistory.set_data(scStateVector[0, :i],
+                                           scStateVector[1, :i])
+            else:
+                scPositionHistory.set_data(scStateVector[0, i - 500:i],
+                                           scStateVector[1, i - 500:i])
+        return scPositionCurrent, scPositionHistory, mainPosition, secondaryPosition, time_points
+
+    resultPlot = animation.FuncAnimation(fig,
+                                         animate,
+                                         init_func=init,
+                                         frames=len(scStateVector[0]),
+                                         interval=10,
+                                         blit=True)
+
+    if animationSave == True:
+        # Save as mp4. This requires mplayer or ffmpeg to be installed
+        resultPlot.save(&#39;3bp.mp4&#39;, writer=writer)
+
+    return resultPlot
+
+
+def inertial_to_rotating_system(objectPositionInertial, angVel_system, t):
+    &#34;&#34;&#34;Transforms the coordinates of an object in the CR3BP from the inertial 
+    frame to the rotating.
+  
+    Args:
+      objectPositionInertial: Coordinates of the object in the inertial frame, 
+        XYZ and time.
+      angVel_system: Angular velocity of the 2-body system.
+      t: Time where the coordinates are.
+  
+    Returns:
+      objectPositionRotating: Coordinates of the object in the rotating frame, 
+        XYZ and time.
+    &#34;&#34;&#34;
+
+    objectPositionRotating = np.empty(
+        (objectPositionInertial.shape[0], t.shape[0]))
+
+    for timePoint in range(0, t.shape[0]):
+        C = np.array([[
+            np.cos(angVel_system * t[timePoint]),
+            np.sin(angVel_system * t[timePoint]), 0
+        ],
+                      [
+                          -np.sin(angVel_system * t[timePoint]),
+                          np.cos(angVel_system * t[timePoint]), 0
+                      ], [0, 0, 1]])
+        objectPositionRotating[:3, timePoint] = np.dot(
+            C, objectPositionInertial[:3, timePoint])[:]
+        if objectPositionInertial.shape[0] == 6:
+            objectPositionRotating[3:6, timePoint] = np.dot(
+                np.dot(
+                    np.array([[0, angVel_system, 0], [-angVel_system, 0, 0],
+                              [0, 0, 0]]), C),
+                objectPositionInertial[:3, timePoint])[:] + np.dot(
+                    C, objectPositionInertial[3:6, timePoint])[:]
+
+    return objectPositionRotating
+
+
+def rotating_to_inertial_system(objectPositionRotating, angVel_system, t):
+    &#34;&#34;&#34;Transforms the coordinates of an object in the CR3BP from the rotating 
+    frame to the inertial.
+  
+    Args:
+      objectPositionRotating: Coordinates of the object in the rotating frame, 
+        XYZ and time.
+      angVel_system: Angular velocity of the 2-body system.
+      t: Time where the coordinates are.
+  
+    Returns:
+      objectPositionInertial: Coordinates of the object in the inertial frame, 
+        XYZ and time.
+    &#34;&#34;&#34;
+
+    objectPositionInertial = np.empty(
+        (objectPositionRotating.shape[0], t.shape[0]))
+
+    for timePoint in range(0, t.shape[0]):
+        C = np.array([[
+            np.cos(angVel_system * t[timePoint]),
+            np.sin(angVel_system * t[timePoint]), 0
+        ],
+                      [
+                          -np.sin(angVel_system * t[timePoint]),
+                          np.cos(angVel_system * t[timePoint]), 0
+                      ], [0, 0, 1]])
+        objectPositionInertial[:3, timePoint] = np.dot(
+            C.T, objectPositionRotating[:3, timePoint])[:]
+        if objectPositionRotating.shape[0] == 6:
+            objectPositionInertial[3:6, timePoint] = np.dot(
+                np.dot(
+                    np.array([[0, -angVel_system, 0], [angVel_system, 0, 0],
+                              [0, 0, 0]]), C.T),
+                objectPositionRotating[:3, timePoint])[:] + np.dot(
+                    C.T, objectPositionRotating[3:6, timePoint])[:]
+
+    return objectPositionInertial
+
+
+def time_converter(time, currentUnit, objectiveUnit):
+    &#34;&#34;&#34;Converts time from one unit to another.
+
+    Converts time values from the time variable that are in currentUnit to the 
+    unit in objectiveUnit.
+  
+    Args:
+      time: Time value or list of time values.
+      currentUnit (str): Unit in which the values of time are expressed 
+        (seconds, hours, days, years).
+      objectiveUnit (str): Unit to which to convert the time values (seconds, 
+        hours, days, years).
+  
+    Returns:
+      resultTime: Time value or list of time values in the desired unit.
+      objectiveUnit (str): Unit in which the times in resultTime are expressed 
+        (seconds, hours, days, years).
+    &#34;&#34;&#34;
+
+    hour_in_seconds = 3600
+    day_in_hours = 24
+    year_in_days = 365
+
+    if currentUnit == &#39;seconds&#39;:
+        if objectiveUnit == &#39;hours&#39;:
+            resultTime = time / hour_in_seconds
+
+        elif objectiveUnit == &#39;days&#39;:
+            resultTime = time / (hour_in_seconds * day_in_hours)
+
+        elif objectiveUnit == &#39;years&#39;:
+            resultTime = time / (hour_in_seconds * day_in_hours * year_in_days)
+
+    elif currentUnit == &#39;hours&#39;:
+        if objectiveUnit == &#39;seconds&#39;:
+            resultTime = time * hour_in_seconds
+
+        elif objectiveUnit == &#39;days&#39;:
+            resultTime = time / (day_in_hours)
+
+        elif objectiveUnit == &#39;years&#39;:
+            resultTime = time / (day_in_hours * year_in_days)
+
+    elif currentUnit == &#39;days&#39;:
+        if objectiveUnit == &#39;seconds&#39;:
+            resultTime = time * day_in_hours * hour_in_seconds
+
+        elif objectiveUnit == &#39;hours&#39;:
+            resultTime = time * day_in_hours
+
+        elif objectiveUnit == &#39;years&#39;:
+            resultTime = time / year_in_days
+
+    elif currentUnit == &#39;years&#39;:
+        if objectiveUnit == &#39;seconds&#39;:
+            resultTime = time * year_in_days * day_in_hours * hour_in_seconds
+        elif objectiveUnit == &#39;hours&#39;:
+            resultTime = time * year_in_days * day_in_hours
+        elif objectiveUnit == &#39;days&#39;:
+            resultTime = time * year_in_days
+
+    return [resultTime, objectiveUnit]</code></pre>
+</details>
+</section>
+<section>
+</section>
+<section>
+</section>
+<section>
+<h2 class="section-title" id="header-functions">Functions</h2>
+<dl>
+<dt id="astro_equations.support_functions_3bp.calc_jacobi"><code class="name flex">
+<span>def <span class="ident">calc_jacobi</span></span>(<span>x, y, z, vx, vy, vz, mu)</span>
+</code></dt>
+<dd>
+<section class="desc"><p>Calculates Jacobi's Constant given the position and velocities.</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt>x,y,z: Position coordinates of the Spacecraft.</dt>
+<dt>vx,vy,vz: Velocity of the spacecraft.</dt>
+<dt><strong><code>mu</code></strong></dt>
+<dd>Adimensional mass parameter of the system.</dd>
+</dl>
+<h2 id="returns">Returns</h2>
+<dl>
+<dt><strong><code>C</code></strong></dt>
+<dd>Jacobi's Constant.</dd>
+</dl></section>
+<details class="source">
+<summary>Source code</summary>
+<pre><code class="python">def calc_jacobi(x, y, z, vx, vy, vz, mu):
+    &#34;&#34;&#34;Calculates Jacobi&#39;s Constant given the position and velocities.
+
+    Args:
+      x,y,z: Position coordinates of the Spacecraft.
+      vx,vy,vz: Velocity of the spacecraft.
+      mu: Adimensional mass parameter of the system.
+      
+    Returns:
+      C: Jacobi&#39;s Constant.
+    &#34;&#34;&#34;
+
+    r1 = distance(&#39;main&#39;, [x, y, z], mu)
+    r2 = distance(&#39;secondary&#39;, [x, y, z], mu)
+    C = x**2 + y**2 + 2 * (1 - mu) / r1 + 2 * mu / r2 - (vx**2 + vy**2 + vz**2)
+
+    return C</code></pre>
+</details>
+</dd>
+<dt id="astro_equations.support_functions_3bp.calculate_lagrange_points"><code class="name flex">
+<span>def <span class="ident">calculate_lagrange_points</span></span>(<span>mu)</span>
+</code></dt>
+<dd>
+<section class="desc"><p>Calculates the position of the Lagrange Points of the CR3BP in the
+rotating frame.</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>mu</code></strong></dt>
+<dd>Adimensional mass parameter of the system.</dd>
+</dl>
+<h2 id="returns">Returns</h2>
+<dl>
+<dt><strong><code>L1</code></strong>, <strong><code>L2</code></strong>, <strong><code>L3</code></strong>, <strong><code>L4</code></strong>, <strong><code>L5</code></strong> :&ensp;<code>XY</code> <code>coordinates</code> <code>fo</code> <code>the</code> <code>Lagrange</code> <code>Points</code> <code>in</code> <code>the</code> <code>rotating</code></dt>
+<dd>&nbsp;</dd>
+</dl>
+<p>frame.</p></section>
+<details class="source">
+<summary>Source code</summary>
+<pre><code class="python">def calculate_lagrange_points(mu):
+    &#34;&#34;&#34;Calculates the position of the Lagrange Points of the CR3BP in the 
+      rotating frame.
+
+    Args:
+      mu: Adimensional mass parameter of the system.
+      
+    Returns:
+      L1, L2, L3, L4, L5: XY coordinates fo the Lagrange Points in the rotating 
+        frame.
+    &#34;&#34;&#34;
+
+    # L1 calculation
+    coefL1 = [
+        1, 4 * mu - 2, 6 * mu**2 - 6 * mu + 1,
+        4 * mu**3 - 6 * mu**2 + 4 * mu - 1,
+        mu**4 - 2 * mu**3 + 5 * mu**2 - 4 * mu + 2,
+        2 * mu**3 - 3 * mu**2 + 3 * mu - 1
+    ]
+    L1roots = np.roots(coefL1)
+    L1 = [0, 0]
+    for i in L1roots:
+        if np.isreal(i):
+            L1 = np.array([i.real, 0])
+
+    # L2 calculation
+    coefL2 = [
+        1, 4 * mu - 2, 6 * mu**2 - 6 * mu + 1,
+        4 * mu**3 - 6 * mu**2 + 2 * mu - 1,
+        mu**4 - 2 * mu**3 + mu**2 - 4 * mu + 2, 3 * mu - 3 * mu**2 - 1
+    ]
+    L2roots = np.roots(coefL2)
+    L2 = [0, 0]
+    for i in L2roots:
+        if np.isreal(i):
+            L2 = np.array([i.real, 0])
+
+    # L3 calculation
+    coefL3 = [
+        1, 4 * mu - 2, 6 * mu**2 - 6 * mu + 1,
+        4 * mu**3 - 6 * mu**2 + 2 * mu + 1,
+        mu**4 - 2 * mu**3 + mu**2 + 4 * mu - 2, 3 * mu**2 - 3 * mu + 1
+    ]
+    L3roots = np.roots(coefL3)
+    L3 = [0, 0]
+    for i in L3roots:
+        if np.isreal(i):
+            L3 = np.array([i.real, 0])
+
+    # L4 calculation
+    L4 = np.array([1 / 2 - mu, 1 / 2 * m.sqrt(3)])
+
+    # L5 calculation
+    L5 = np.array([1 / 2 - mu, -1 / 2 * m.sqrt(3)])
+
+    return np.array([L1, L2, L3, L4, L5])</code></pre>
+</details>
+</dd>
+<dt id="astro_equations.support_functions_3bp.define_initial_conditions"><code class="name flex">
+<span>def <span class="ident">define_initial_conditions</span></span>(<span>mu)</span>
+</code></dt>
+<dd>
+<section class="desc"><p>Defines the initial coordinates, time and other optional graphics bools.</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>mu</code></strong></dt>
+<dd>Mass parameter of the CR3BP.</dd>
+</dl>
+<h2 id="returns">Returns</h2>
+<dl>
+<dt><strong><code>Y0</code></strong></dt>
+<dd>Initial conditions vector for the SC, XYZ VX VY VZ.</dd>
+<dt><strong><code>timeSpan</code></strong></dt>
+<dd>Tange of time to integrate.</dd>
+<dt><strong><code>timePoints</code></strong></dt>
+<dd>Times at which to store the computed solution.</dd>
+<dt><strong><code>boolZVC</code></strong> :&ensp;<code>bool</code></dt>
+<dd>Boolean to plot the ZVC and Lagrange Points.</dd>
+<dt><strong><code>boolLagrange</code></strong> :&ensp;<code>bool</code></dt>
+<dd>Boolean to plot only the Lagrange Points.</dd>
+<dt><strong><code>boolAnimation</code></strong> :&ensp;<code>list</code></dt>
+<dd>
+<p>List with information of the data as animation:</p>
+<ul>
+<li>
+<p>(bool): True to create animation, otherwise False.</p>
+</li>
+<li>
+<p>(bool): True to save the animation, otherwise False.</p>
+</li>
+<li>
+<p>Type of animation (str): 'Standard' or 'Comet'-like.</p>
+</li>
+<li>
+<p>Reference System (str): 'Rotating' or 'Inertial'.</p>
+</li>
+</ul>
+</dd>
+</dl></section>
+<details class="source">
+<summary>Source code</summary>
+<pre><code class="python">def define_initial_conditions(mu):
+    &#34;&#34;&#34;Defines the initial coordinates, time and other optional graphics bools.
+
+    Args:
+      mu: Mass parameter of the CR3BP.
+
+    Returns:
+      Y0: Initial conditions vector for the SC, XYZ VX VY VZ.
+      timeSpan: Tange of time to integrate.
+      timePoints: Times at which to store the computed solution.
+      boolZVC (bool): Boolean to plot the ZVC and Lagrange Points.
+      boolLagrange (bool): Boolean to plot only the Lagrange Points.
+      boolAnimation (list): List with information of the data as animation:
+
+        - (bool): True to create animation, otherwise False.
+
+        - (bool): True to save the animation, otherwise False.
+
+        - Type of animation (str): &#39;Standard&#39; or &#39;Comet&#39;-like.
+
+        - Reference System (str): &#39;Rotating&#39; or &#39;Inertial&#39;.
+    &#34;&#34;&#34;
+
+    rot_SCPos_initial = np.array([1 - mu, 0.0455,
+                                  0.0])  # SC position in rotating frame
+    rot_SCVel_initial = np.array([-0.5322, 0.2,
+                                  0.0])  # SC velocity in rotating frame
+    #rot_SCVel_initial = np.array([-0.4, 0.2, 0.0]) # SC velocity in rotating frame
+
+    Y0 = np.concatenate(
+        (rot_SCPos_initial, rot_SCVel_initial),
+        axis=None)  # SC position and velocity in rotating frame
+
+    timeSpan = [0, int(integration_time / adimTime)]
+    timePoints = np.linspace(timeSpan[0], timeSpan[1], 15000)
+
+    boolLagrange = False
+    boolZVC = False
+    boolAnimation = [
+        True, True, &#39;Comet&#39;, &#39;Inertial&#39;
+    ]  # Animation True/False, Save True/False, Type Standard/Comet, Ref.Frame
+    # Rotating/Inertial
+
+    return Y0, timeSpan, timePoints, boolZVC, boolLagrange, boolAnimation</code></pre>
+</details>
+</dd>
+<dt id="astro_equations.support_functions_3bp.distance"><code class="name flex">
+<span>def <span class="ident">distance</span></span>(<span>ref_object, Y, mu)</span>
+</code></dt>
+<dd>
+<section class="desc"><p>Calculates the distance between target and reference object.</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>ref_object</code></strong> :&ensp;<code>str</code></dt>
+<dd>Which reference object, 'main' or 'secondary'.</dd>
+<dt><strong><code>Y</code></strong></dt>
+<dd>State vector for the spacecraft.</dd>
+<dt><strong><code>mu</code></strong></dt>
+<dd>Mass parameter of the system.</dd>
+</dl>
+<h2 id="returns">Returns</h2>
+<dl>
+<dt><strong><code>r</code></strong></dt>
+<dd>Distance between target and reference object.</dd>
+</dl></section>
+<details class="source">
+<summary>Source code</summary>
+<pre><code class="python">def distance(ref_object, Y, mu):
+    &#34;&#34;&#34;Calculates the distance between target and reference object.
+
+    Args:
+      ref_object (str): Which reference object, &#39;main&#39; or &#39;secondary&#39;.
+      Y: State vector for the spacecraft.
+      mu: Mass parameter of the system.
+      
+    Returns:
+      r: Distance between target and reference object.
+    &#34;&#34;&#34;
+
+    if ref_object == &#39;main&#39;:
+
+        r = np.sqrt((mu + Y[0])**2 + Y[1]**2 + Y[2])
+
+    elif ref_object == &#39;secondary&#39;:
+
+        r = np.sqrt((Y[0] - 1 + mu)**2 + Y[1]**2 + Y[2]**2)
+
+    return r</code></pre>
+</details>
+</dd>
+<dt id="astro_equations.support_functions_3bp.eccentricity"><code class="name flex">
+<span>def <span class="ident">eccentricity</span></span>(<span>pos_x, pos_y, pos_z, vel_x, vel_y, vel_z)</span>
+</code></dt>
+<dd>
+<section class="desc"></section>
+<details class="source">
+<summary>Source code</summary>
+<pre><code class="python">def eccentricity(pos_x, pos_y, pos_z, vel_x, vel_y, vel_z):
+
+    pos_vector = np.array([pos_x, pos_y, pos_z])
+    vel_vector = np.array([vel_x, vel_y, vel_z])
+
+    mag_pos = np.linalg.norm(pos_vector)
+    mag_vel = np.linalg.norm(vel_vector)
+
+    evec_num1 = (mag_vel**2 - (mu_Sun / mag_pos)) * pos_vector
+    evec_num2 = np.dot(pos_vector, vel_vector) * vel_vector
+
+    evec = (evec_num1 - evec_num2) / mu_Sun
+
+    return evec</code></pre>
+</details>
+</dd>
+<dt id="astro_equations.support_functions_3bp.inertial_to_rotating_system"><code class="name flex">
+<span>def <span class="ident">inertial_to_rotating_system</span></span>(<span>objectPositionInertial, angVel_system, t)</span>
+</code></dt>
+<dd>
+<section class="desc"><p>Transforms the coordinates of an object in the CR3BP from the inertial
+frame to the rotating.</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>objectPositionInertial</code></strong></dt>
+<dd>Coordinates of the object in the inertial frame,
+XYZ and time.</dd>
+<dt><strong><code>angVel_system</code></strong></dt>
+<dd>Angular velocity of the 2-body system.</dd>
+<dt><strong><code>t</code></strong></dt>
+<dd>Time where the coordinates are.</dd>
+</dl>
+<h2 id="returns">Returns</h2>
+<dl>
+<dt><strong><code>objectPositionRotating</code></strong></dt>
+<dd>Coordinates of the object in the rotating frame,
+XYZ and time.</dd>
+</dl></section>
+<details class="source">
+<summary>Source code</summary>
+<pre><code class="python">def inertial_to_rotating_system(objectPositionInertial, angVel_system, t):
+    &#34;&#34;&#34;Transforms the coordinates of an object in the CR3BP from the inertial 
+    frame to the rotating.
+  
+    Args:
+      objectPositionInertial: Coordinates of the object in the inertial frame, 
+        XYZ and time.
+      angVel_system: Angular velocity of the 2-body system.
+      t: Time where the coordinates are.
+  
+    Returns:
+      objectPositionRotating: Coordinates of the object in the rotating frame, 
+        XYZ and time.
+    &#34;&#34;&#34;
+
+    objectPositionRotating = np.empty(
+        (objectPositionInertial.shape[0], t.shape[0]))
+
+    for timePoint in range(0, t.shape[0]):
+        C = np.array([[
+            np.cos(angVel_system * t[timePoint]),
+            np.sin(angVel_system * t[timePoint]), 0
+        ],
+                      [
+                          -np.sin(angVel_system * t[timePoint]),
+                          np.cos(angVel_system * t[timePoint]), 0
+                      ], [0, 0, 1]])
+        objectPositionRotating[:3, timePoint] = np.dot(
+            C, objectPositionInertial[:3, timePoint])[:]
+        if objectPositionInertial.shape[0] == 6:
+            objectPositionRotating[3:6, timePoint] = np.dot(
+                np.dot(
+                    np.array([[0, angVel_system, 0], [-angVel_system, 0, 0],
+                              [0, 0, 0]]), C),
+                objectPositionInertial[:3, timePoint])[:] + np.dot(
+                    C, objectPositionInertial[3:6, timePoint])[:]
+
+    return objectPositionRotating</code></pre>
+</details>
+</dd>
+<dt id="astro_equations.support_functions_3bp.kepler_third_law_ang_vel"><code class="name flex">
+<span>def <span class="ident">kepler_third_law_ang_vel</span></span>(<span>mu, r)</span>
+</code></dt>
+<dd>
+<section class="desc"><p>Calculates the circular angular velocity of the Kepler 2BP.</p>
+<p>Calculates the circular angular velocity of an object in the Kepler 2BP
+given the central mass parameter and the radius of the orbit.</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>mu</code></strong></dt>
+<dd>Central mass paramtere in SI.</dd>
+<dt><strong><code>r</code></strong></dt>
+<dd>Cicrcular radius of the orbit in SI.</dd>
+</dl>
+<h2 id="returns">Returns</h2>
+<dl>
+<dt><strong><code>omega</code></strong></dt>
+<dd>Circular angular velocity in SI.</dd>
+</dl></section>
+<details class="source">
+<summary>Source code</summary>
+<pre><code class="python">def kepler_third_law_ang_vel(mu, r):
+    &#34;&#34;&#34;Calculates the circular angular velocity of the Kepler 2BP.
+    
+    Calculates the circular angular velocity of an object in the Kepler 2BP 
+    given the central mass parameter and the radius of the orbit.
+
+    Args:
+      mu: Central mass paramtere in SI.
+      r: Cicrcular radius of the orbit in SI.
+
+    Returns:
+      omega: Circular angular velocity in SI.
+    &#34;&#34;&#34;
+
+    omega = np.sqrt(mu / r**3)
+
+    return omega</code></pre>
+</details>
+</dd>
+<dt id="astro_equations.support_functions_3bp.plot_3D_potential"><code class="name flex">
+<span>def <span class="ident">plot_3D_potential</span></span>(<span>mu, mainPos, secondaryPos, **kwargs)</span>
+</code></dt>
+<dd>
+<section class="desc"><p>Plots the 3D Potential of the 3BP in the rotational axis.</p>
+<p>Plots the 3D Potential (and optionally the Lagrange Points) of the 3BP in
+the rotational axis</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>mu</code></strong></dt>
+<dd>Adimensional mass parameter of the system.</dd>
+<dt><strong><code>mainPos</code></strong></dt>
+<dd>Position of the main, XYZ.</dd>
+<dt><strong><code>secondaryPos</code></strong></dt>
+<dd>Position of the secondary, XYZ.</dd>
+<dt><strong><code>**makeFigure</code></strong> :&ensp;<code>bool</code></dt>
+<dd>Defaults to False. Boolean to make a separate figure
+(True), or include it in the calling function's figure (False).</dd>
+<dt><strong><code>**boolLagrange</code></strong> :&ensp;<code>bool</code></dt>
+<dd>Defaults to True. Boolean to plot the Lagrange Points.</dd>
+</dl></section>
+<details class="source">
+<summary>Source code</summary>
+<pre><code class="python">def plot_3D_potential(mu, mainPos, secondaryPos, **kwargs):
+    &#34;&#34;&#34;Plots the 3D Potential of the 3BP in the rotational axis.
+
+    Plots the 3D Potential (and optionally the Lagrange Points) of the 3BP in 
+    the rotational axis
+
+    Args:
+      mu: Adimensional mass parameter of the system.
+      mainPos: Position of the main, XYZ.
+      secondaryPos: Position of the secondary, XYZ.
+      **makeFigure (bool): Defaults to False. Boolean to make a separate figure 
+        (True), or include it in the calling function&#39;s figure (False).
+      **boolLagrange (bool): Defaults to True. Boolean to plot the Lagrange Points.
+    &#34;&#34;&#34;
+
+    makeFigure = kwargs.get(&#39;makeFigure&#39;, False)
+    boolLagrange = kwargs.get(&#39;boolLagrange&#39;, True)
+
+    # prepare mesh for contourplot
+    X, Y, Z = prepare_mesh_plot(bool3D=True)
+
+    massiveObjectsHeight = np.nanmax(Z) + 0.5
+    mainPos[2] = massiveObjectsHeight
+    secondaryPos[2] = massiveObjectsHeight
+
+    if makeFigure == True:
+        fig, ax = prepare_plot_CR3BP(mainPos, secondaryPos, bool3D=True)
+
+    if boolLagrange == True:
+        LP = plot_lagrange(mu,
+                           mainPos,
+                           secondaryPos,
+                           objectsHeight3D=massiveObjectsHeight,
+                           axes=ax)
+
+    surf = ax.plot_surface(X,
+                           Y,
+                           Z,
+                           cmap=cm.gnuplot,
+                           linewidth=0,
+                           antialiased=False)  # contour for CjL
+    ticks = np.linspace(np.nanmin(Z), np.nanmax(Z), 10)
+    cbar = plt.colorbar(surf)
+    cbar.set_label(&#39;- Jacobi Constant of ZVC&#39;)
+    cbar.set_ticks(ticks)
+
+    if makeFigure == True:
+        ax.legend(loc=&#39;upper left&#39;)
+        plt.title(&#39;Potential in the CR3BP&#39;)</code></pre>
+</details>
+</dd>
+<dt id="astro_equations.support_functions_3bp.plot_CR3BP"><code class="name flex">
+<span>def <span class="ident">plot_CR3BP</span></span>(<span>mu, mainPos, secondaryPos, scStateVector, t_points, **kwargs)</span>
+</code></dt>
+<dd>
+<section class="desc"><p>Plots the CR3BP.</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>mu</code></strong></dt>
+<dd>Mass parameter of the system.</dd>
+<dt><strong><code>referenceSystem</code></strong></dt>
+<dd>Reference System in which to plot, 'Rotating' or
+'Inertial'. </dd>
+<dt><strong><code>mainPos</code></strong></dt>
+<dd>Position of the main, XYZ.</dd>
+<dt><strong><code>secondarypos</code></strong></dt>
+<dd>Position of the secondary, XYZ.</dd>
+<dt><strong><code>scStateVector</code></strong></dt>
+<dd>State vector of the SC, X Y Z VX VY VZ.</dd>
+<dt><strong><code>t_points</code></strong></dt>
+<dd>Vector with the time points where the state vectors are.</dd>
+<dt><strong><code>**boolZVC</code></strong> :&ensp;<code>bool</code></dt>
+<dd>Defaults to False. Boolean to plot the ZVC and Lagrange
+Points.</dd>
+<dt><strong><code>**boolLagrange</code></strong> :&ensp;<code>bool</code></dt>
+<dd>Defaults to False. Boolean to plot only the
+Lagrange Points.</dd>
+<dt><strong><code>**boolAnimation</code></strong> :&ensp;<code>list</code></dt>
+<dd>
+<p>List with information of the data as animation:</p>
+<ul>
+<li>
+<p>(bool): Defaults to False. True to create animation, otherwise False.</p>
+</li>
+<li>
+<p>(bool): Defaults to False. True to save the animation, otherwise False.</p>
+</li>
+<li>
+<p>Type of animation (str): Defaults to 'Standard'. Standard' or
+'Comet'-like.</p>
+</li>
+<li>
+<p>Reference System (str): Defaults to 'Rotating' or 'Inertial'.</p>
+</li>
+</ul>
+</dd>
+</dl>
+<h2 id="returns">Returns</h2>
+<dl>
+<dt><strong><code>resultPlot</code></strong></dt>
+<dd>Plot object of the 3BP.</dd>
+</dl></section>
+<details class="source">
+<summary>Source code</summary>
+<pre><code class="python">def plot_CR3BP(mu, mainPos, secondaryPos, scStateVector, t_points, **kwargs):
+    &#34;&#34;&#34;Plots the CR3BP.
+
+    Args:
+      mu: Mass parameter of the system.
+      referenceSystem: Reference System in which to plot, &#39;Rotating&#39; or 
+        &#39;Inertial&#39;. 
+      mainPos: Position of the main, XYZ.
+      secondarypos: Position of the secondary, XYZ.
+      scStateVector: State vector of the SC, X Y Z VX VY VZ.
+      t_points: Vector with the time points where the state vectors are.
+      **boolZVC (bool): Defaults to False. Boolean to plot the ZVC and Lagrange 
+        Points.
+      **boolLagrange (bool): Defaults to False. Boolean to plot only the 
+        Lagrange Points.
+      **boolAnimation (list): List with information of the data as animation:
+
+        - (bool): Defaults to False. True to create animation, otherwise False.
+
+        - (bool): Defaults to False. True to save the animation, otherwise False.
+
+        - Type of animation (str): Defaults to &#39;Standard&#39;. Standard&#39; or 
+          &#39;Comet&#39;-like.
+
+        - Reference System (str): Defaults to &#39;Rotating&#39; or &#39;Inertial&#39;.
+    
+    Returns:
+        resultPlot: Plot object of the 3BP.
+    &#34;&#34;&#34;
+
+    boolZVC = kwargs.get(&#39;boolZVC&#39;, False)
+    boolLagrange = kwargs.get(&#39;boolLagrange&#39;, False)
+    boolAnimation = kwargs.get(&#39;boolAnimation&#39;,
+                               [False, False, &#39;Standard&#39;, &#39;Rotating&#39;])
+
+    fig, ax = prepare_plot_CR3BP(mainPos, secondaryPos)
+
+    if boolZVC == True:
+        plot_zero_velocity_curves(mu,
+                                  mainPos,
+                                  secondaryPos,
+                                  scStateVector=[
+                                      scStateVector[0, 0], scStateVector[1, 0],
+                                      scStateVector[2, 0], scStateVector[3, 0],
+                                      scStateVector[4, 0], scStateVector[5, 0]
+                                  ])
+
+    if boolLagrange == True:
+        LP = plot_lagrange(mu, mainPos, secondaryPos)
+
+    if boolAnimation[0] == True:
+        mainPos = np.tile(mainPos, (t_points.shape[0], 1)).T
+        secondaryPos = np.tile(secondaryPos, (t_points.shape[0], 1)).T
+
+        if boolAnimation[3] == &#39;Inertial&#39;:
+            mainPos = rotating_to_inertial_system(mainPos, adimAngVel,
+                                                  t_points)
+            secondaryPos = rotating_to_inertial_system(secondaryPos,
+                                                       adimAngVel, t_points)
+            scStateVector = rotating_to_inertial_system(
+                scStateVector[:3], adimAngVel, t_points)
+
+        resultPlot = plot_animation(fig,
+                                    ax,
+                                    mainPos,
+                                    secondaryPos,
+                                    scStateVector,
+                                    t_points,
+                                    animationType=boolAnimation[2],
+                                    animationSave=boolAnimation[1])
+
+    else:
+        ax.plot(scStateVector[0], scStateVector[1], label=&#39;SC Trajectory&#39;)
+        ax.scatter(mainPos[0],
+                   mainPos[1],
+                   marker=&#39;o&#39;,
+                   s=40,
+                   color=&#39;r&#39;,
+                   alpha=0.7,
+                   label=&#39;Primary&#39;)
+        ax.scatter(secondaryPos[0],
+                   secondaryPos[1],
+                   marker=&#39;o&#39;,
+                   s=20,
+                   color=&#39;g&#39;,
+                   alpha=0.7,
+                   label=&#39;Secondary&#39;)
+        finalTime, finalUnit = time_converter(t_points[-1] * adimTime,
+                                              &#39;seconds&#39;, &#39;days&#39;)
+        plt.text(0.05,
+                 0.05,
+                 f&#39;t = {finalTime:.2f} {finalUnit}&#39;,
+                 transform=ax.transAxes)
+        ax.legend(loc=0, fontsize=&#39;x-small&#39;)
+        plt.title(&#39;Orbit propagation for CR3BP (Earth - Moon)&#39;)
+        resultPlot = ax
+
+    return resultPlot</code></pre>
+</details>
+</dd>
+<dt id="astro_equations.support_functions_3bp.plot_animation"><code class="name flex">
+<span>def <span class="ident">plot_animation</span></span>(<span>fig, ax, mainPos, secondaryPos, scStateVector, t_points, **kwargs)</span>
+</code></dt>
+<dd>
+<section class="desc"><p>Plots the animation of the 3BP and optionally saves it.</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>fig</code></strong></dt>
+<dd>Fig object of the plot.</dd>
+<dt><strong><code>ax</code></strong></dt>
+<dd>Axes object of the plot.</dd>
+<dt><strong><code>mainPos</code></strong></dt>
+<dd>Position of the main, XYZ.</dd>
+<dt><strong><code>secondarypos</code></strong></dt>
+<dd>Position of the secondary, XYZ.</dd>
+<dt><strong><code>scStateVector</code></strong></dt>
+<dd>State vector of the SC, X Y Z VX VY VZ.</dd>
+<dt><strong><code>t_points</code></strong></dt>
+<dd>Vector with the time points where the state vectors are.</dd>
+<dt>**animationType (str); Defaults to 'Standard'. 'Standard' or 'Comet'-like.</dt>
+<dt><strong><code>**animationSave</code></strong> :&ensp;<code>bool</code></dt>
+<dd>Defaults to False. Boolean to save or not the
+animation.</dd>
+</dl>
+<h2 id="returns">Returns</h2>
+<dl>
+<dt><strong><code>resultPlot</code></strong></dt>
+<dd>Animated plot object of the 3BP.</dd>
+</dl></section>
+<details class="source">
+<summary>Source code</summary>
+<pre><code class="python">def plot_animation(fig, ax, mainPos, secondaryPos, scStateVector, t_points,
+                   **kwargs):
+    &#34;&#34;&#34;Plots the animation of the 3BP and optionally saves it.
+    
+    Args:
+      fig: Fig object of the plot.
+      ax: Axes object of the plot.
+      mainPos: Position of the main, XYZ.
+      secondarypos: Position of the secondary, XYZ.
+      scStateVector: State vector of the SC, X Y Z VX VY VZ.
+      t_points: Vector with the time points where the state vectors are.
+      **animationType (str); Defaults to &#39;Standard&#39;. &#39;Standard&#39; or &#39;Comet&#39;-like.
+      **animationSave (bool): Defaults to False. Boolean to save or not the 
+        animation.
+
+    Returns:
+      resultPlot: Animated plot object of the 3BP.
+    &#34;&#34;&#34;
+
+    animationType = kwargs.get(&#39;animationType&#39;, &#39;Standard&#39;)
+    animationSave = kwargs.get(&#39;animationSave&#39;, &#39;False&#39;)
+
+    mainPosition, = ax.plot([], [],
+                            marker=&#39;o&#39;,
+                            markersize=10,
+                            color=&#39;r&#39;,
+                            alpha=1,
+                            label=&#39;Primary&#39;)
+    secondaryPosition, = ax.plot([], [],
+                                 marker=&#39;o&#39;,
+                                 markersize=5,
+                                 color=&#39;g&#39;,
+                                 alpha=1,
+                                 label=&#39;Secondary&#39;)
+    scPositionHistory, = ax.plot([], [], c=&#39;b&#39;, zorder=9)
+    scPositionCurrent, = ax.plot([], [],
+                                 c=&#39;b&#39;,
+                                 marker=&#39;o&#39;,
+                                 markersize=2,
+                                 markerfacecolor=&#39;tab:orange&#39;,
+                                 markeredgecolor=&#39;tab:orange&#39;,
+                                 label=&#39;SC Trajectory&#39;,
+                                 zorder=10)
+    time_points = ax.text(0.05, 0.05, &#39;&#39;, transform=ax.transAxes)
+    ax.legend(loc=&#39;upper left&#39;)
+    plt.title(&#39;Orbit propagation for 3BP (Earth - Moon)&#39;)
+    timePoints, unit = time_converter(t_points * adimTime, &#39;seconds&#39;, &#39;days&#39;)
+
+    # Set up formatting for the movie files
+    Writer = animation.writers[&#39;ffmpeg&#39;]
+    writer = Writer(fps=100,
+                    metadata=dict(artist=&#39;Me&#39;),
+                    bitrate=1800,
+                    extra_args=[&#39;-vcodec&#39;, &#39;libx264&#39;])
+
+    def init():
+        &#34;&#34;&#34;initialize animation&#34;&#34;&#34;
+        scPositionCurrent.set_data([], [])
+        scPositionHistory.set_data([], [])
+        mainPosition.set_data([], [])
+        secondaryPosition.set_data([], [])
+        time_points.set_text(&#39;&#39;)
+
+        return scPositionCurrent, scPositionHistory, mainPosition, secondaryPosition, time_points
+
+    # animation function.  This will be called sequentially with the frame number
+    def animate(i):
+        time_points.set_text(f&#39;t = {timePoints[i]:.2f} {unit}&#39;)
+        mainPosition.set_data(mainPos[0, i], mainPos[1, i])
+        secondaryPosition.set_data(secondaryPos[0, i], secondaryPos[1, i])
+        if animationType == &#39;Standard&#39;:
+            scPositionCurrent.set_data(scStateVector[0, i],
+                                       scStateVector[1, i])
+            scPositionHistory.set_data(scStateVector[0, :i],
+                                       scStateVector[1, :i])
+        elif animationType == &#39;Comet&#39;:
+            scPositionCurrent.set_data(scStateVector[0, i],
+                                       scStateVector[1, i])
+            if i &lt; 500:
+                scPositionHistory.set_data(scStateVector[0, :i],
+                                           scStateVector[1, :i])
+            else:
+                scPositionHistory.set_data(scStateVector[0, i - 500:i],
+                                           scStateVector[1, i - 500:i])
+        return scPositionCurrent, scPositionHistory, mainPosition, secondaryPosition, time_points
+
+    resultPlot = animation.FuncAnimation(fig,
+                                         animate,
+                                         init_func=init,
+                                         frames=len(scStateVector[0]),
+                                         interval=10,
+                                         blit=True)
+
+    if animationSave == True:
+        # Save as mp4. This requires mplayer or ffmpeg to be installed
+        resultPlot.save(&#39;3bp.mp4&#39;, writer=writer)
+
+    return resultPlot</code></pre>
+</details>
+</dd>
+<dt id="astro_equations.support_functions_3bp.plot_lagrange"><code class="name flex">
+<span>def <span class="ident">plot_lagrange</span></span>(<span>mu, mainPos, secondaryPos, **kwargs)</span>
+</code></dt>
+<dd>
+<section class="desc"><p>Plots the Lagrange Points in the 3BP in the rotational axis.</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>mu</code></strong></dt>
+<dd>Adimensional mass parameter of the system.</dd>
+<dt><strong><code>mainPos</code></strong></dt>
+<dd>Position of the main, XYZ.</dd>
+<dt><strong><code>secondaryPos</code></strong></dt>
+<dd>Position of the secondary, XYZ.</dd>
+<dt><strong><code>**makeFigure</code></strong> :&ensp;<code>bool</code></dt>
+<dd>Defaults to False. Boolean to make a separate figure
+(True), or include it in the calling function's figure (False).</dd>
+<dt><strong><code>**objectsHeight3D</code></strong></dt>
+<dd>Defaults to None. Z coordinate for the objects in 3D plot.</dd>
+<dt><strong><code>**axes</code></strong></dt>
+<dd>Defaults to None. If 3D plot, the axes object needs to be passed.</dd>
+</dl>
+<h2 id="returns">Returns</h2>
+<dl>
+<dt><strong><code>LP</code></strong></dt>
+<dd>Lagrange Points coordinates.</dd>
+</dl></section>
+<details class="source">
+<summary>Source code</summary>
+<pre><code class="python">def plot_lagrange(mu, mainPos, secondaryPos, **kwargs):
+    &#34;&#34;&#34;Plots the Lagrange Points in the 3BP in the rotational axis.
+
+    Args:
+      mu: Adimensional mass parameter of the system.
+      mainPos: Position of the main, XYZ.
+      secondaryPos: Position of the secondary, XYZ.
+      **makeFigure (bool): Defaults to False. Boolean to make a separate figure 
+        (True), or include it in the calling function&#39;s figure (False).
+      **objectsHeight3D: Defaults to None. Z coordinate for the objects in 3D plot.
+      **axes: Defaults to None. If 3D plot, the axes object needs to be passed.
+
+    Returns:
+      LP: Lagrange Points coordinates.
+    &#34;&#34;&#34;
+
+    makeFigure = kwargs.get(&#39;makeFigure&#39;, False)
+    objectsHeight3D = kwargs.get(&#39;objectsHeight3D&#39;, None)
+    ax = kwargs.get(&#39;axes&#39;, None)
+
+    LP = calculate_lagrange_points(mu)
+
+    if makeFigure == True:
+        fig, ax = prepare_plot_CR3BP(mainPos, secondaryPos)
+
+    if objectsHeight3D == None:
+        plt.scatter(LP[0, 0],
+                    LP[0, 1],
+                    marker=&#39;x&#39;,
+                    color=&#39;r&#39;,
+                    alpha=0.8,
+                    zorder=9,
+                    label=&#39;Lagrange Points&#39;)
+        plt.scatter(LP[1, 0],
+                    LP[1, 1],
+                    marker=&#39;x&#39;,
+                    color=&#39;r&#39;,
+                    alpha=0.8,
+                    zorder=9)
+        plt.scatter(LP[2, 0],
+                    LP[2, 1],
+                    marker=&#39;x&#39;,
+                    color=&#39;r&#39;,
+                    alpha=0.8,
+                    zorder=9)
+        plt.scatter(LP[3, 0],
+                    LP[3, 1],
+                    marker=&#39;x&#39;,
+                    color=&#39;r&#39;,
+                    alpha=0.8,
+                    zorder=9)
+        plt.scatter(LP[4, 0],
+                    LP[4, 1],
+                    marker=&#39;x&#39;,
+                    color=&#39;r&#39;,
+                    alpha=0.8,
+                    zorder=9)
+
+    else:
+        ax.scatter(LP[0, 0],
+                   LP[0, 1],
+                   objectsHeight3D,
+                   s=50,
+                   marker=&#39;x&#39;,
+                   color=&#39;r&#39;,
+                   alpha=0.8,
+                   label=&#39;Lagrange Points&#39;)
+        ax.scatter(LP[1, 0],
+                   LP[1, 1],
+                   objectsHeight3D,
+                   s=50,
+                   marker=&#39;x&#39;,
+                   color=&#39;r&#39;,
+                   alpha=0.8)
+        ax.scatter(LP[2, 0],
+                   LP[2, 1],
+                   objectsHeight3D,
+                   s=50,
+                   marker=&#39;x&#39;,
+                   color=&#39;r&#39;,
+                   alpha=0.8)
+        ax.scatter(LP[3, 0],
+                   LP[3, 1],
+                   objectsHeight3D,
+                   s=50,
+                   marker=&#39;x&#39;,
+                   color=&#39;r&#39;,
+                   alpha=0.8)
+        ax.scatter(LP[4, 0],
+                   LP[4, 1],
+                   objectsHeight3D,
+                   s=50,
+                   marker=&#39;x&#39;,
+                   color=&#39;r&#39;,
+                   alpha=0.8)
+        ax.text(LP[0, 0] - 0.05, LP[0, 1] - 0.15, objectsHeight3D, r&#39;L$_1$&#39;)
+        ax.text(LP[1, 0] + 0.05, LP[1, 1] - 0.05, objectsHeight3D, r&#39;L$_2$&#39;)
+        ax.text(LP[2, 0] - 0.2, LP[2, 1] - 0.05, objectsHeight3D, r&#39;L$_3$&#39;)
+        ax.text(LP[3, 0] - 0.05, LP[3, 1] + 0.05, objectsHeight3D, r&#39;L$_4$&#39;)
+        ax.text(LP[4, 0] - 0.05, LP[4, 1] - 0.15, objectsHeight3D, r&#39;L$_5$&#39;)
+
+    if makeFigure == True:
+        ax.legend(loc=&#39;upper left&#39;)
+        plt.title(&#39;Lagrange Points Position&#39;)
+
+    return LP</code></pre>
+</details>
+</dd>
+<dt id="astro_equations.support_functions_3bp.plot_zero_velocity_curves"><code class="name flex">
+<span>def <span class="ident">plot_zero_velocity_curves</span></span>(<span>mu, mainPos, secondaryPos, **kwargs)</span>
+</code></dt>
+<dd>
+<section class="desc"><p>Plots the ZVC of the 3BP in the rotational axis.</p>
+<p>Plots the ZVC (and optionally the Lagrange Points) of the 3BP in the
+rotational axis.</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>mu</code></strong></dt>
+<dd>Adimensional mass parameter of the system.</dd>
+<dt><strong><code>mainPos</code></strong></dt>
+<dd>Position of the main, XYZ.</dd>
+<dt><strong><code>secondaryPos</code></strong></dt>
+<dd>Position of the secondary, XYZ.</dd>
+<dt><strong><code>**makeFigure</code></strong> :&ensp;<code>bool</code></dt>
+<dd>Defaults to False. Boolean to make a separate figure
+(True), or include it in the calling function's figure (False).</dd>
+<dt><strong><code>**boolLagrange</code></strong> :&ensp;<code>bool</code></dt>
+<dd>Defaults to True. Boolean to plot the Lagrange Points.</dd>
+<dt><strong><code>**scStateVector</code></strong></dt>
+<dd>Defaults to None. Initial coordinates of the Spacecraft
+to calculate Jacobi's Constant.</dd>
+</dl></section>
+<details class="source">
+<summary>Source code</summary>
+<pre><code class="python">def plot_zero_velocity_curves(mu, mainPos, secondaryPos, **kwargs):
+    &#34;&#34;&#34;Plots the ZVC of the 3BP in the rotational axis.
+
+    Plots the ZVC (and optionally the Lagrange Points) of the 3BP in the 
+    rotational axis.
+
+    Args:
+      mu: Adimensional mass parameter of the system.
+      mainPos: Position of the main, XYZ.
+      secondaryPos: Position of the secondary, XYZ.
+      **makeFigure (bool): Defaults to False. Boolean to make a separate figure 
+        (True), or include it in the calling function&#39;s figure (False).
+      **boolLagrange (bool): Defaults to True. Boolean to plot the Lagrange Points.
+      **scStateVector: Defaults to None. Initial coordinates of the Spacecraft 
+        to calculate Jacobi&#39;s Constant.
+    &#34;&#34;&#34;
+
+    makeFigure = kwargs.get(&#39;makeFigure&#39;, False)
+    boolLagrange = kwargs.get(&#39;boolLagrange&#39;, True)
+    scStateVector = kwargs.get(&#39;scStateVector&#39;, None)
+
+    # prepare mesh for contourplot
+    X, Y, Z = prepare_mesh_plot()
+
+    if makeFigure == True:
+        fig, ax = prepare_plot_CR3BP(mainPos, secondaryPos)
+
+    if boolLagrange == True:
+        LP = plot_lagrange(mu, mainPos, secondaryPos)
+
+    if scStateVector == None:
+        jacobiConst1 = calc_jacobi(LP[0, 0], LP[0, 1], 0, 0, 0, 0, mu)
+        jacobiConst2 = calc_jacobi(LP[1, 0], LP[1, 1], 0, 0, 0, 0, mu)
+        jacobiConst3 = calc_jacobi(LP[2, 0], LP[2, 1], 0, 0, 0, 0, mu)
+        jacobiConst4 = calc_jacobi(LP[3, 0], LP[3, 1], 0, 0, 0, 0, mu)
+        jacobiConst5 = calc_jacobi(LP[4, 0], LP[4, 1], 0, 0, 0, 0, mu)
+
+        jacobiConstList = [jacobiConst3, jacobiConst2, jacobiConst1]
+
+        plt.contour(X, Y, Z, jacobiConstList,
+                    cmap=cm.gnuplot)  # contour for CjL
+
+    else:
+        jacobiConstSC = calc_jacobi(scStateVector[0], scStateVector[1],
+                                    scStateVector[2], scStateVector[3],
+                                    scStateVector[4], scStateVector[5], mu)
+        Z[(jacobiConstSC &lt;= Z[:, :]) | (Z[:, :] &lt;
+                                        (jacobiConstSC * 0.9))] = np.NaN
+
+        levels = np.linspace(np.nanmin(Z), np.nanmax(Z), 100)
+        ticks = np.linspace(np.nanmin(Z), np.nanmax(Z), 10)
+        plt.contourf(X, Y, Z, cmap=cm.gnuplot, levels=levels)
+        cbar = plt.colorbar()
+        cbar.set_label(&#39;Jacobi Constant of ZVC&#39;)
+        cbar.set_ticks(ticks)
+
+    if makeFigure == True:
+        ax.legend(loc=&#39;upper left&#39;)
+        plt.title(&#39;Zero Velocity Curves&#39;)</code></pre>
+</details>
+</dd>
+<dt id="astro_equations.support_functions_3bp.potential_dU"><code class="name flex">
+<span>def <span class="ident">potential_dU</span></span>(<span>coord, Y, mu)</span>
+</code></dt>
+<dd>
+<section class="desc"><p>Calculates the derivative of the scalar potential U in each coordinate.</p>
+<p>Calculates the derivative of the scalar potential U that accounts for
+gravitational and centrifugal forces wrt the variable in 'coord'.</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>coord</code></strong></dt>
+<dd>Variable wrt which to derivate the scalar potential U.</dd>
+<dt><strong><code>Y</code></strong></dt>
+<dd>State vector for the spacecraft.</dd>
+<dt><strong><code>mu</code></strong></dt>
+<dd>Mass constant of the system.</dd>
+</dl>
+<h2 id="returns">Returns</h2>
+<dl>
+<dt><strong><code>du</code></strong></dt>
+<dd>Derivative of the potential U.</dd>
+</dl></section>
+<details class="source">
+<summary>Source code</summary>
+<pre><code class="python">def potential_dU(coord, Y, mu):
+    &#34;&#34;&#34;Calculates the derivative of the scalar potential U in each coordinate.
+    
+    Calculates the derivative of the scalar potential U that accounts for 
+    gravitational and centrifugal forces wrt the variable in &#39;coord&#39;.
+
+    Args:
+      coord: Variable wrt which to derivate the scalar potential U.
+      Y: State vector for the spacecraft.
+      mu: Mass constant of the system.
+
+    Returns:
+      du: Derivative of the potential U.
+    &#34;&#34;&#34;
+
+    if coord == &#39;x&#39;:
+
+        du = Y[0] - (1 - mu) * (Y[0] + mu) / (distance(
+            &#39;main&#39;, Y, mu)**3) - mu * (Y[0] - 1 + mu) / (distance(
+                &#39;secondary&#39;, Y, mu)**3)
+
+    elif coord == &#39;y&#39;:
+
+        du = Y[1] - (1 - mu) * Y[1] / (distance(
+            &#39;main&#39;, Y, mu)**3) - mu * Y[1] / (distance(&#39;secondary&#39;, Y, mu)**3)
+
+    elif coord == &#39;z&#39;:
+
+        du = -(1 - mu) * Y[2] / (distance(
+            &#39;main&#39;, Y, mu)**3) - mu * Y[2] / (distance(&#39;secondary&#39;, Y, mu)**3)
+
+    return du</code></pre>
+</details>
+</dd>
+<dt id="astro_equations.support_functions_3bp.prepare_mesh_plot"><code class="name flex">
+<span>def <span class="ident">prepare_mesh_plot</span></span>(<span>**kwargs)</span>
+</code></dt>
+<dd>
+<section class="desc"><p>Prepares the mesh for the potential calculations in the CR3BP plots.</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>**bool3D</code></strong> :&ensp;<code>bool</code></dt>
+<dd>Defaults to False. Boolean to prepare for the 3D plot
+instead of the planar.</dd>
+</dl>
+<h2 id="returns">Returns</h2>
+<p>X, Y, Z: Values for the mesh of the potential.</p></section>
+<details class="source">
+<summary>Source code</summary>
+<pre><code class="python">def prepare_mesh_plot(**kwargs):
+    &#34;&#34;&#34;Prepares the mesh for the potential calculations in the CR3BP plots.
+      
+    Args:
+      **bool3D (bool): Defaults to False. Boolean to prepare for the 3D plot 
+        instead of the planar.
+  
+    Returns:
+      X, Y, Z: Values for the mesh of the potential.
+    &#34;&#34;&#34;
+
+    bool3D = kwargs.get(&#39;bool3D&#39;, False)
+
+    # prepare mesh for contourplot
+    delta = 0.001
+    x = np.arange(-1.5, 1.5, delta)
+    y = np.arange(-1.5, 1.5, delta)
+    X, Y = np.meshgrid(x, y)
+    if bool3D == False:
+        Z = calc_jacobi(X, Y, 0, 0, 0, 0, mu)
+    else:
+        Z = -calc_jacobi(X, Y, 0, 0, 0, 0, mu)
+        Z[Z[:, :] &lt; (-7)] = -7
+
+    return X, Y, Z</code></pre>
+</details>
+</dd>
+<dt id="astro_equations.support_functions_3bp.prepare_plot_CR3BP"><code class="name flex">
+<span>def <span class="ident">prepare_plot_CR3BP</span></span>(<span>mainPos, secondaryPos, **kwargs)</span>
+</code></dt>
+<dd>
+<section class="desc"><p>Prepares the axis and fig part of the CR3BP plots.</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>mainPos</code></strong></dt>
+<dd>Position of the main, XYZ.</dd>
+<dt><strong><code>secondarypos</code></strong></dt>
+<dd>Position of the secondary, XYZ.</dd>
+<dt><strong><code>**bool3D</code></strong> :&ensp;<code>bool</code></dt>
+<dd>Defaults to False. Boolean to prepare for the 3D plot
+instead of the planar.</dd>
+</dl>
+<h2 id="returns">Returns</h2>
+<dl>
+<dt><strong><code>fig</code></strong></dt>
+<dd>Fig object of the plot.</dd>
+<dt><strong><code>ax</code></strong></dt>
+<dd>Axes object of the plot.</dd>
+</dl></section>
+<details class="source">
+<summary>Source code</summary>
+<pre><code class="python">def prepare_plot_CR3BP(mainPos, secondaryPos, **kwargs):
+    &#34;&#34;&#34;Prepares the axis and fig part of the CR3BP plots.
+
+    Args:
+      mainPos: Position of the main, XYZ.
+      secondarypos: Position of the secondary, XYZ.
+      **bool3D (bool): Defaults to False. Boolean to prepare for the 3D plot 
+        instead of the planar.
+    
+    Returns:
+      fig: Fig object of the plot.
+      ax: Axes object of the plot.
+    &#34;&#34;&#34;
+
+    bool3D = kwargs.get(&#39;bool3D&#39;, False)
+
+    if bool3D == True:
+        fig = plt.figure()
+        ax = fig.add_subplot(111, projection=&#39;3d&#39;)
+        ax = plt.gca(projection=&#39;3d&#39;)
+
+    else:
+        fig, ax = plt.subplots()
+        ax = plt.gca()
+
+    ax.set_xlim([-1.5, 1.5])
+    ax.set_ylim([-1.5, 1.5])
+    ax.set_xlabel(&#39;X&#39;)
+    ax.set_ylabel(&#39;Y&#39;)
+    ax.set_aspect(&#39;equal&#39;)
+
+    return fig, ax</code></pre>
+</details>
+</dd>
+<dt id="astro_equations.support_functions_3bp.rotating_to_inertial_system"><code class="name flex">
+<span>def <span class="ident">rotating_to_inertial_system</span></span>(<span>objectPositionRotating, angVel_system, t)</span>
+</code></dt>
+<dd>
+<section class="desc"><p>Transforms the coordinates of an object in the CR3BP from the rotating
+frame to the inertial.</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>objectPositionRotating</code></strong></dt>
+<dd>Coordinates of the object in the rotating frame,
+XYZ and time.</dd>
+<dt><strong><code>angVel_system</code></strong></dt>
+<dd>Angular velocity of the 2-body system.</dd>
+<dt><strong><code>t</code></strong></dt>
+<dd>Time where the coordinates are.</dd>
+</dl>
+<h2 id="returns">Returns</h2>
+<dl>
+<dt><strong><code>objectPositionInertial</code></strong></dt>
+<dd>Coordinates of the object in the inertial frame,
+XYZ and time.</dd>
+</dl></section>
+<details class="source">
+<summary>Source code</summary>
+<pre><code class="python">def rotating_to_inertial_system(objectPositionRotating, angVel_system, t):
+    &#34;&#34;&#34;Transforms the coordinates of an object in the CR3BP from the rotating 
+    frame to the inertial.
+  
+    Args:
+      objectPositionRotating: Coordinates of the object in the rotating frame, 
+        XYZ and time.
+      angVel_system: Angular velocity of the 2-body system.
+      t: Time where the coordinates are.
+  
+    Returns:
+      objectPositionInertial: Coordinates of the object in the inertial frame, 
+        XYZ and time.
+    &#34;&#34;&#34;
+
+    objectPositionInertial = np.empty(
+        (objectPositionRotating.shape[0], t.shape[0]))
+
+    for timePoint in range(0, t.shape[0]):
+        C = np.array([[
+            np.cos(angVel_system * t[timePoint]),
+            np.sin(angVel_system * t[timePoint]), 0
+        ],
+                      [
+                          -np.sin(angVel_system * t[timePoint]),
+                          np.cos(angVel_system * t[timePoint]), 0
+                      ], [0, 0, 1]])
+        objectPositionInertial[:3, timePoint] = np.dot(
+            C.T, objectPositionRotating[:3, timePoint])[:]
+        if objectPositionRotating.shape[0] == 6:
+            objectPositionInertial[3:6, timePoint] = np.dot(
+                np.dot(
+                    np.array([[0, -angVel_system, 0], [angVel_system, 0, 0],
+                              [0, 0, 0]]), C.T),
+                objectPositionRotating[:3, timePoint])[:] + np.dot(
+                    C.T, objectPositionRotating[3:6, timePoint])[:]
+
+    return objectPositionInertial</code></pre>
+</details>
+</dd>
+<dt id="astro_equations.support_functions_3bp.state_vector_CR3BP"><code class="name flex">
+<span>def <span class="ident">state_vector_CR3BP</span></span>(<span>t, Y)</span>
+</code></dt>
+<dd>
+<section class="desc"><p>ODE for the circular restricted 3 body problem to numerically integrate.</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>Y</code></strong></dt>
+<dd>State vector for the objects.</dd>
+<dt><strong><code>t</code></strong></dt>
+<dd>Time vector with the time steps where the ode needs to integrate.</dd>
+</dl>
+<h2 id="returns">Returns</h2>
+<dl>
+<dt><strong><code>dY</code></strong></dt>
+<dd>Time derivative of the state vector that needs to be integrated.</dd>
+</dl></section>
+<details class="source">
+<summary>Source code</summary>
+<pre><code class="python">def state_vector_CR3BP(t, Y):
+    &#34;&#34;&#34;ODE for the circular restricted 3 body problem to numerically integrate.
+
+    Args:
+      Y: State vector for the objects.
+      t: Time vector with the time steps where the ode needs to integrate.
+
+    Returns:
+      dY: Time derivative of the state vector that needs to be integrated.
+    &#34;&#34;&#34;
+
+    dY = [0 for i in range(6)]
+
+    # Spacecraft position in rotating frame
+    dY[0] = Y[3]
+    dY[1] = Y[4]
+    dY[2] = Y[5]
+
+    # Spacecraft velocity
+    dY[3] = 2 * Y[4] + potential_dU(&#39;x&#39;, Y, mu)
+    dY[4] = -2 * Y[3] + potential_dU(&#39;y&#39;, Y, mu)
+    dY[5] = potential_dU(&#39;z&#39;, Y, mu)
+
+    return dY</code></pre>
+</details>
+</dd>
+<dt id="astro_equations.support_functions_3bp.time_converter"><code class="name flex">
+<span>def <span class="ident">time_converter</span></span>(<span>time, currentUnit, objectiveUnit)</span>
+</code></dt>
+<dd>
+<section class="desc"><p>Converts time from one unit to another.</p>
+<p>Converts time values from the time variable that are in currentUnit to the
+unit in objectiveUnit.</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>time</code></strong></dt>
+<dd>Time value or list of time values.</dd>
+<dt><strong><code>currentUnit</code></strong> :&ensp;<code>str</code></dt>
+<dd>Unit in which the values of time are expressed
+(seconds, hours, days, years).</dd>
+<dt><strong><code>objectiveUnit</code></strong> :&ensp;<code>str</code></dt>
+<dd>Unit to which to convert the time values (seconds,
+hours, days, years).</dd>
+</dl>
+<h2 id="returns">Returns</h2>
+<dl>
+<dt><strong><code>resultTime</code></strong></dt>
+<dd>Time value or list of time values in the desired unit.</dd>
+<dt><strong><code>objectiveUnit</code></strong> :&ensp;<code>str</code></dt>
+<dd>Unit in which the times in resultTime are expressed
+(seconds, hours, days, years).</dd>
+</dl></section>
+<details class="source">
+<summary>Source code</summary>
+<pre><code class="python">def time_converter(time, currentUnit, objectiveUnit):
+    &#34;&#34;&#34;Converts time from one unit to another.
+
+    Converts time values from the time variable that are in currentUnit to the 
+    unit in objectiveUnit.
+  
+    Args:
+      time: Time value or list of time values.
+      currentUnit (str): Unit in which the values of time are expressed 
+        (seconds, hours, days, years).
+      objectiveUnit (str): Unit to which to convert the time values (seconds, 
+        hours, days, years).
+  
+    Returns:
+      resultTime: Time value or list of time values in the desired unit.
+      objectiveUnit (str): Unit in which the times in resultTime are expressed 
+        (seconds, hours, days, years).
+    &#34;&#34;&#34;
+
+    hour_in_seconds = 3600
+    day_in_hours = 24
+    year_in_days = 365
+
+    if currentUnit == &#39;seconds&#39;:
+        if objectiveUnit == &#39;hours&#39;:
+            resultTime = time / hour_in_seconds
+
+        elif objectiveUnit == &#39;days&#39;:
+            resultTime = time / (hour_in_seconds * day_in_hours)
+
+        elif objectiveUnit == &#39;years&#39;:
+            resultTime = time / (hour_in_seconds * day_in_hours * year_in_days)
+
+    elif currentUnit == &#39;hours&#39;:
+        if objectiveUnit == &#39;seconds&#39;:
+            resultTime = time * hour_in_seconds
+
+        elif objectiveUnit == &#39;days&#39;:
+            resultTime = time / (day_in_hours)
+
+        elif objectiveUnit == &#39;years&#39;:
+            resultTime = time / (day_in_hours * year_in_days)
+
+    elif currentUnit == &#39;days&#39;:
+        if objectiveUnit == &#39;seconds&#39;:
+            resultTime = time * day_in_hours * hour_in_seconds
+
+        elif objectiveUnit == &#39;hours&#39;:
+            resultTime = time * day_in_hours
+
+        elif objectiveUnit == &#39;years&#39;:
+            resultTime = time / year_in_days
+
+    elif currentUnit == &#39;years&#39;:
+        if objectiveUnit == &#39;seconds&#39;:
+            resultTime = time * year_in_days * day_in_hours * hour_in_seconds
+        elif objectiveUnit == &#39;hours&#39;:
+            resultTime = time * year_in_days * day_in_hours
+        elif objectiveUnit == &#39;days&#39;:
+            resultTime = time * year_in_days
+
+    return [resultTime, objectiveUnit]</code></pre>
+</details>
+</dd>
+</dl>
+</section>
+<section>
+<h2 class="section-title" id="header-classes">Classes</h2>
+<dl>
+<dt id="astro_equations.support_functions_3bp.FasterFFMpegWriter"><code class="flex name class">
+<span>class <span class="ident">FasterFFMpegWriter</span></span>
+<span>(</span><span>**kwargs)</span>
+</code></dt>
+<dd>
+<section class="desc"><p>FFMpeg-pipe writer bypassing figure.savefig.</p>
+<p>Initialize the Writer object and sets the default frame_format.</p></section>
+<details class="source">
+<summary>Source code</summary>
+<pre><code class="python">class FasterFFMpegWriter(FFMpegWriter):
+    &#34;&#34;&#34;
+      FFMpeg-pipe writer bypassing figure.savefig.
+    &#34;&#34;&#34;
+    def __init__(self, **kwargs):
+        &#34;&#34;&#34;Initialize the Writer object and sets the default frame_format.&#34;&#34;&#34;
+        super().__init__(**kwargs)
+        self.frame_format = &#39;argb&#39;
+
+    def grab_frame(self, **savefig_kwargs):
+        &#34;&#34;&#34;Grab the image information from the figure and save as a movie frame.
+
+        Doesn&#39;t use savefig to be faster: savefig_kwargs will be ignored.
+        &#34;&#34;&#34;
+        try:
+            # re-adjust the figure size and dpi in case it has been changed by the
+            # user.  We must ensure that every frame is the same size or
+            # the movie will not save correctly.
+            self.fig.set_size_inches(self._w, self._h)
+            self.fig.set_dpi(self.dpi)
+            # Draw and save the frame as an argb string to the pipe sink
+            self.fig.canvas.draw()
+            self._frame_sink().write(self.fig.canvas.tostring_argb())
+        except (RuntimeError, IOError) as e:
+            out, err = self._proc.communicate()
+            raise IOError(&#39;Error saving animation to file (cause: {0}) &#39;
+                          &#39;Stdout: {1} StdError: {2}. It may help to re-run &#39;
+                          &#39;with --verbose-debug.&#39;.format(e, out, err))</code></pre>
+</details>
+<h3>Ancestors</h3>
+<ul class="hlist">
+<li>matplotlib.animation.FFMpegWriter</li>
+<li>matplotlib.animation.FFMpegBase</li>
+<li>matplotlib.animation.MovieWriter</li>
+<li>matplotlib.animation.AbstractMovieWriter</li>
+<li>abc.ABC</li>
+</ul>
+<h3>Methods</h3>
+<dl>
+<dt id="astro_equations.support_functions_3bp.FasterFFMpegWriter.grab_frame"><code class="name flex">
+<span>def <span class="ident">grab_frame</span></span>(<span>self, **savefig_kwargs)</span>
+</code></dt>
+<dd>
+<section class="desc"><p>Grab the image information from the figure and save as a movie frame.</p>
+<p>Doesn't use savefig to be faster: savefig_kwargs will be ignored.</p></section>
+<details class="source">
+<summary>Source code</summary>
+<pre><code class="python">def grab_frame(self, **savefig_kwargs):
+    &#34;&#34;&#34;Grab the image information from the figure and save as a movie frame.
+
+    Doesn&#39;t use savefig to be faster: savefig_kwargs will be ignored.
+    &#34;&#34;&#34;
+    try:
+        # re-adjust the figure size and dpi in case it has been changed by the
+        # user.  We must ensure that every frame is the same size or
+        # the movie will not save correctly.
+        self.fig.set_size_inches(self._w, self._h)
+        self.fig.set_dpi(self.dpi)
+        # Draw and save the frame as an argb string to the pipe sink
+        self.fig.canvas.draw()
+        self._frame_sink().write(self.fig.canvas.tostring_argb())
+    except (RuntimeError, IOError) as e:
+        out, err = self._proc.communicate()
+        raise IOError(&#39;Error saving animation to file (cause: {0}) &#39;
+                      &#39;Stdout: {1} StdError: {2}. It may help to re-run &#39;
+                      &#39;with --verbose-debug.&#39;.format(e, out, err))</code></pre>
+</details>
+</dd>
+</dl>
+</dd>
+</dl>
+</section>
+</article>
+<nav id="sidebar">
+<h1>Index</h1>
+<div class="toc">
+<ul></ul>
+</div>
+<ul id="index">
+<li><h3>Super-module</h3>
+<ul>
+<li><code><a title="astro_equations" href="index.html">astro_equations</a></code></li>
+</ul>
+</li>
+<li><h3><a href="#header-functions">Functions</a></h3>
+<ul class="">
+<li><code><a title="astro_equations.support_functions_3bp.calc_jacobi" href="#astro_equations.support_functions_3bp.calc_jacobi">calc_jacobi</a></code></li>
+<li><code><a title="astro_equations.support_functions_3bp.calculate_lagrange_points" href="#astro_equations.support_functions_3bp.calculate_lagrange_points">calculate_lagrange_points</a></code></li>
+<li><code><a title="astro_equations.support_functions_3bp.define_initial_conditions" href="#astro_equations.support_functions_3bp.define_initial_conditions">define_initial_conditions</a></code></li>
+<li><code><a title="astro_equations.support_functions_3bp.distance" href="#astro_equations.support_functions_3bp.distance">distance</a></code></li>
+<li><code><a title="astro_equations.support_functions_3bp.eccentricity" href="#astro_equations.support_functions_3bp.eccentricity">eccentricity</a></code></li>
+<li><code><a title="astro_equations.support_functions_3bp.inertial_to_rotating_system" href="#astro_equations.support_functions_3bp.inertial_to_rotating_system">inertial_to_rotating_system</a></code></li>
+<li><code><a title="astro_equations.support_functions_3bp.kepler_third_law_ang_vel" href="#astro_equations.support_functions_3bp.kepler_third_law_ang_vel">kepler_third_law_ang_vel</a></code></li>
+<li><code><a title="astro_equations.support_functions_3bp.plot_3D_potential" href="#astro_equations.support_functions_3bp.plot_3D_potential">plot_3D_potential</a></code></li>
+<li><code><a title="astro_equations.support_functions_3bp.plot_CR3BP" href="#astro_equations.support_functions_3bp.plot_CR3BP">plot_CR3BP</a></code></li>
+<li><code><a title="astro_equations.support_functions_3bp.plot_animation" href="#astro_equations.support_functions_3bp.plot_animation">plot_animation</a></code></li>
+<li><code><a title="astro_equations.support_functions_3bp.plot_lagrange" href="#astro_equations.support_functions_3bp.plot_lagrange">plot_lagrange</a></code></li>
+<li><code><a title="astro_equations.support_functions_3bp.plot_zero_velocity_curves" href="#astro_equations.support_functions_3bp.plot_zero_velocity_curves">plot_zero_velocity_curves</a></code></li>
+<li><code><a title="astro_equations.support_functions_3bp.potential_dU" href="#astro_equations.support_functions_3bp.potential_dU">potential_dU</a></code></li>
+<li><code><a title="astro_equations.support_functions_3bp.prepare_mesh_plot" href="#astro_equations.support_functions_3bp.prepare_mesh_plot">prepare_mesh_plot</a></code></li>
+<li><code><a title="astro_equations.support_functions_3bp.prepare_plot_CR3BP" href="#astro_equations.support_functions_3bp.prepare_plot_CR3BP">prepare_plot_CR3BP</a></code></li>
+<li><code><a title="astro_equations.support_functions_3bp.rotating_to_inertial_system" href="#astro_equations.support_functions_3bp.rotating_to_inertial_system">rotating_to_inertial_system</a></code></li>
+<li><code><a title="astro_equations.support_functions_3bp.state_vector_CR3BP" href="#astro_equations.support_functions_3bp.state_vector_CR3BP">state_vector_CR3BP</a></code></li>
+<li><code><a title="astro_equations.support_functions_3bp.time_converter" href="#astro_equations.support_functions_3bp.time_converter">time_converter</a></code></li>
+</ul>
+</li>
+<li><h3><a href="#header-classes">Classes</a></h3>
+<ul>
+<li>
+<h4><code><a title="astro_equations.support_functions_3bp.FasterFFMpegWriter" href="#astro_equations.support_functions_3bp.FasterFFMpegWriter">FasterFFMpegWriter</a></code></h4>
+<ul class="">
+<li><code><a title="astro_equations.support_functions_3bp.FasterFFMpegWriter.grab_frame" href="#astro_equations.support_functions_3bp.FasterFFMpegWriter.grab_frame">grab_frame</a></code></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</nav>
+</main>
+<footer id="footer">
+<p>Generated by <a href="https://pdoc3.github.io/pdoc"><cite>pdoc</cite> 0.6.3</a>.</p>
+</footer>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+<script>hljs.initHighlightingOnLoad()</script>
+</body>
+</html>

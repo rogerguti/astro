@@ -1,0 +1,814 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1" />
+<meta name="generator" content="pdoc 0.6.3" />
+<title>astro_equations.support_functions_astro API documentation</title>
+<meta name="description" content="Created on Mon Apr 22 10:34:29 2019 …" />
+<link href='https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.0/normalize.min.css' rel='stylesheet'>
+<link href='https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/8.0.0/sanitize.min.css' rel='stylesheet'>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css" rel="stylesheet">
+<style>.flex{display:flex !important}body{line-height:1.5em}#content{padding:20px}#sidebar{padding:30px;overflow:hidden}.http-server-breadcrumbs{font-size:130%;margin:0 0 15px 0}#footer{font-size:.75em;padding:5px 30px;border-top:1px solid #ddd;text-align:right}#footer p{margin:0 0 0 1em;display:inline-block}#footer p:last-child{margin-right:30px}h1,h2,h3,h4,h5{font-weight:300}h1{font-size:2.5em;line-height:1.1em}h2{font-size:1.75em;margin:1em 0 .50em 0}h3{font-size:1.4em;margin:25px 0 10px 0}h4{margin:0;font-size:105%}a{color:#058;text-decoration:none;transition:color .3s ease-in-out}a:hover{color:#e82}.title code{font-weight:bold}h2[id^="header-"]{margin-top:2em}.ident{color:#900}pre code{background:#f8f8f8;font-size:.8em;line-height:1.4em}code{background:#f2f2f1;padding:1px 4px;overflow-wrap:break-word}h1 code{background:transparent}pre{background:#f8f8f8;border:0;border-top:1px solid #ccc;border-bottom:1px solid #ccc;margin:1em 0;padding:1ex}#http-server-module-list{display:flex;flex-flow:column}#http-server-module-list div{display:flex}#http-server-module-list dt{min-width:10%}#http-server-module-list p{margin-top:0}.toc ul,#index{list-style-type:none;margin:0;padding:0}#index code{background:transparent}#index h3{border-bottom:1px solid #ddd}#index ul{padding:0}#index h4{font-weight:bold}#index h4 + ul{margin-bottom:.6em}@media (min-width:200ex){#index .two-column{column-count:2}}@media (min-width:300ex){#index .two-column{column-count:3}}dl{margin-bottom:2em}dl dl:last-child{margin-bottom:4em}dd{margin:0 0 1em 3em}#header-classes + dl > dd{margin-bottom:3em}dd dd{margin-left:2em}dd p{margin:10px 0}.name{background:#eee;font-weight:bold;font-size:.85em;padding:5px 10px;display:inline-block;min-width:40%}.name:hover{background:#e0e0e0}.name > span:first-child{white-space:nowrap}.name.class > span:nth-child(2){margin-left:.4em}.inherited{color:#999;border-left:5px solid #eee;padding-left:1em}.inheritance em{font-style:normal;font-weight:bold}.desc h2{font-weight:400;font-size:1.25em}.desc h3{font-size:1em}.desc dt code{background:inherit}.source summary{color:#666;text-align:right;font-weight:400;font-size:.8em;text-transform:uppercase;cursor:pointer}.source pre{max-height:500px;overflow:auto;margin:0}.source pre code{font-size:12px;overflow:visible}.hlist{list-style:none}.hlist li{display:inline}.hlist li:after{content:',\2002'}.hlist li:last-child:after{content:none}.hlist .hlist{display:inline;padding-left:1em}img{max-width:100%}.admonition{padding:.1em .5em;margin-bottom:1em}.admonition-title{font-weight:bold}.admonition.note,.admonition.info,.admonition.important{background:#aef}.admonition.todo,.admonition.versionadded,.admonition.tip,.admonition.hint{background:#dfd}.admonition.warning,.admonition.versionchanged,.admonition.deprecated{background:#fd4}.admonition.error,.admonition.danger,.admonition.caution{background:lightpink}</style>
+<style media="screen and (min-width: 700px)">@media screen and (min-width:700px){#sidebar{width:30%}#content{width:70%;max-width:100ch;padding:3em 4em;border-left:1px solid #ddd}pre code{font-size:1em}.item .name{font-size:1em}main{display:flex;flex-direction:row-reverse;justify-content:flex-end}.toc ul ul,#index ul{padding-left:1.5em}.toc > ul > li{margin-top:.5em}}</style>
+<style media="print">@media print{#sidebar h1{page-break-before:always}.source{display:none}}@media print{*{background:transparent !important;color:#000 !important;box-shadow:none !important;text-shadow:none !important}a[href]:after{content:" (" attr(href) ")";font-size:90%}a[href][title]:after{content:none}abbr[title]:after{content:" (" attr(title) ")"}.ir a:after,a[href^="javascript:"]:after,a[href^="#"]:after{content:""}pre,blockquote{border:1px solid #999;page-break-inside:avoid}thead{display:table-header-group}tr,img{page-break-inside:avoid}img{max-width:100% !important}@page{margin:0.5cm}p,h2,h3{orphans:3;widows:3}h1,h2,h3,h4,h5,h6{page-break-after:avoid}}</style>
+</head>
+<body>
+<main>
+<article id="content">
+<header>
+<h1 class="title">Module <code>astro_equations.support_functions_astro</code></h1>
+</header>
+<section id="section-intro">
+<p>Created on Mon Apr 22 10:34:29 2019</p>
+<p>@author: Roger Gutierrez Ramon</p>
+<p>Groups all astro support functions used for astrodynamics calculations</p>
+<details class="source">
+<summary>Source code</summary>
+<pre><code class="python"># -*- coding: utf-8 -*-
+&#34;&#34;&#34;
+Created on Mon Apr 22 10:34:29 2019
+
+@author: Roger Gutierrez Ramon
+
+Groups all astro support functions used for astrodynamics calculations
+&#34;&#34;&#34;
+
+
+import math as m
+from astro_equations.solar_system_variables import *
+
+
+def kepler_third_law_omega(mu, R):
+    &#39;&#39;&#39;Calculates the circular angular velocity of an object given the central mass
+    parameter and the radius of the orbit
+
+    Input
+      mu: central mass paramtere in SI
+      R: cicrcular radius of the orbit in SI
+
+    Output
+      omega: circular angular velocity in SI
+    &#39;&#39;&#39;
+
+    omega = m.sqrt(mu/R**3)
+
+    return omega
+
+
+def distance(ref_x, ref_y, ref_z, target_x, target_y, target_z):
+    &#39;&#39;&#39;Calculates the distance between target and reference object given the x,y,z cartesian coordinates
+
+    Input
+      ref_x: x coordinate of the reference object
+      ref_y: y coordinate of the reference object
+      ref_z: z coordinate of the reference object
+      target_x: x coordinate of the target object
+      target_y: y coordinate of the target object
+      target_z: z coordinate of the target object
+
+    Output
+      d_total: distance between target and reference object
+    &#39;&#39;&#39;
+
+    d_total = m.sqrt(m.pow(target_x-ref_x, 2) + m.pow(target_y-ref_y, 2) + m.pow(target_z-ref_z, 2))
+
+    return d_total
+
+
+def f_potential(ref_coord, target_coord, d, mu):
+    &#39;&#39;&#39;Calculates the gravity potential energy on an object due to another in the direction referenced by the coordinates
+
+    Input
+      ref_coord: coordinate of the reference object in the specific axis
+      target_coord: coordinate of the target object in the specific axis
+      d: total distance between reference and target object
+      mu: mass paramtere of the reference object in SI
+
+    Output
+      u: gravity potential energy
+    &#39;&#39;&#39;
+
+    u = -mu * (target_coord - ref_coord) / (m.pow(d, 3))
+
+    return u
+
+
+def three_body(Y, t):
+    &#39;&#39;&#39;Main function for the restricted 3 body problem to numerically integrate
+
+    Input
+      Y: state vector for the objects
+      t: time vector with the time steps where the ode needs to integrate
+
+    Output
+      dY: time derivative of the state vector that needs to be integrated
+    &#39;&#39;&#39;
+
+    dY = [0 for i in range(18)]
+
+    # Sun position
+    dY[0] = Y[9]
+    dY[1] = Y[10]
+    dY[2] = Y[11]
+
+    # Asteroid position
+    dY[3] = Y[12]
+    dY[4] = Y[13]
+    dY[5] = Y[14]
+
+    # Spacecraft position
+    dY[6] = Y[15]
+    dY[7] = Y[16]
+    dY[8] = Y[17]
+
+    # distances between objects
+    r_sun_asteroid = distance(Y[0], Y[1], Y[2], Y[3], Y[4], Y[5])
+    r_sun_sc = distance(Y[0], Y[1], Y[2], Y[6], Y[7], Y[8])
+    r_asteroid_sc = distance(Y[3], Y[4], Y[5], Y[6], Y[7], Y[8])
+
+    # Sun velocity
+    dY[9] = 0
+    dY[10] = 0
+    dY[11] = 0
+    #dY[9] = f_potential(Y[3], Y[0], r_sun_asteroid, mu_asteroid)
+    #dY[10] = f_potential(Y[4], Y[1], r_sun_asteroid, mu_asteroid)
+    #dY[11] = f_potential(Y[5], Y[2], r_sun_asteroid, mu_asteroid)
+
+    # Asteroid velocity
+    dY[12] = f_potential(Y[0], Y[3], r_sun_asteroid, mu_sun)
+    dY[13] = f_potential(Y[1], Y[4], r_sun_asteroid, mu_sun)
+    dY[14] = f_potential(Y[2], Y[5], r_sun_asteroid, mu_sun)
+
+    # Spacecraft velocity
+    #dY[15] = 0
+    #dY[16] = 0
+    #dY[17] = 0
+    dY[15] = f_potential(Y[0], Y[6], r_sun_sc, mu_sun) + f_potential(Y[3], Y[6], r_asteroid_sc, mu_asteroid)
+    dY[16] = f_potential(Y[1], Y[7], r_sun_sc, mu_sun) + f_potential(Y[4], Y[7], r_asteroid_sc, mu_asteroid)
+    dY[17] = f_potential(Y[2], Y[8], r_sun_sc, mu_sun) + f_potential(Y[5], Y[8], r_asteroid_sc, mu_asteroid)
+
+    return dY
+
+
+def define_initial_conditions():
+    &#39;&#39;&#39;Defines the initial conditions vector
+
+    Input
+      Y: state vector for the objects
+      t: time vector with the time steps where the ode needs to integrate
+
+    Output
+      dY: time derivative of the state vector that needs to be integrated
+    &#39;&#39;&#39;
+
+    sc_initial_x = asteroid_initial_pos_and_vel[0]-sun_initial_pos_and_vel[0]+866
+    sc_initial_y = asteroid_initial_pos_and_vel[1]-sun_initial_pos_and_vel[1]+866
+    sc_initial_z = asteroid_initial_pos_and_vel[2]-sun_initial_pos_and_vel[2]+866
+    sc_initial_vx = asteroid_initial_pos_and_vel[3]-sun_initial_pos_and_vel[3]+0.15
+    sc_initial_vy = asteroid_initial_pos_and_vel[4]-sun_initial_pos_and_vel[4]
+    sc_initial_vz = asteroid_initial_pos_and_vel[5]-sun_initial_pos_and_vel[5]
+
+    sc_initial_pos_and_vel = [sc_initial_x, sc_initial_y, sc_initial_z, sc_initial_vx, sc_initial_vy, sc_initial_vz]
+
+    Y0 = [0, 0, 0,          # sun position
+          asteroid_initial_pos_and_vel[0]-sun_initial_pos_and_vel[0], asteroid_initial_pos_and_vel[1]-sun_initial_pos_and_vel[1], asteroid_initial_pos_and_vel[2]-sun_initial_pos_and_vel[2],             # moon position
+          sc_initial_pos_and_vel[0], sc_initial_pos_and_vel[1], sc_initial_pos_and_vel[2],                   # sc position
+          0, 0, 0,       # sun velocity
+          asteroid_initial_pos_and_vel[3]-sun_initial_pos_and_vel[3], asteroid_initial_pos_and_vel[4]-sun_initial_pos_and_vel[4], asteroid_initial_pos_and_vel[5]-sun_initial_pos_and_vel[5],          # moon velocity
+          sc_initial_pos_and_vel[3], sc_initial_pos_and_vel[4], sc_initial_pos_and_vel[5]]                # sc velocity
+
+    return Y0
+
+
+def eccentricity(pos_x, pos_y, pos_z, vel_x, vel_y, vel_z):
+
+    pos_vector = np.array([pos_x, pos_y, pos_z])
+    vel_vector = np.array([vel_x, vel_y, vel_z])
+
+    mag_pos = np.linalg.norm(pos_vector)
+    mag_vel = np.linalg.norm(vel_vector)
+
+    evec_num1 = (mag_vel**2 - (mu_sun / mag_pos)) * pos_vector
+    evec_num2 = np.dot(pos_vector,vel_vector) * vel_vector
+
+    evec =  (evec_num1 - evec_num2) / mu_sun
+
+    return evec
+
+def lagrangePoints(mu, OP1, OP2):
+
+    # L1 calculation
+    coefL1 = [1, 4*mu - 2, 6*mu**2 - 6*mu +1, 4*mu**3 - 6*mu**2 + 4*mu - 1, mu**4 - 2*mu**3 + 5*mu**2 -4*mu + 2, 2*mu**3 - 3*mu**2 + 3*mu - 1]
+    L1roots = np.roots(coefL1) 
+    L1 = [0,0]
+    for i in L1roots:
+        if np.isreal(i):
+            L1 = [i.real,0]
+
+    # L2 calculation
+    coefL2 = [1, 4*mu - 2, 6*mu**2 - 6*mu +1, 4*mu**3 - 6*mu**2 + 2*mu - 1, mu**4 - 2*mu**3 + mu**2 -4*mu + 2, 3*mu - 3*mu**2 - 1]
+    L2roots = np.roots(coefL2) 
+    L2 = [0,0]
+    for i in L2roots:
+        if np.isreal(i):
+            L2 = [i.real,0]
+
+    # L3 calculation
+    coefL3 = [1, 4*mu - 2, 6*mu**2 - 6*mu +1, 4*mu**3 - 6*mu**2 + 2*mu + 1, mu**4 - 2*mu**3 + mu**2 +4*mu - 2, 3*mu**2 - 3*mu + 1]
+    L3roots = np.roots(coefL3) 
+    L3 = [0,0]
+    for i in L3roots:
+        if np.isreal(i):
+            L3 = [i.real,0]
+
+    # L4 calculation
+    L4 = [1/2 - mu, 1/2*m.sqrt(3)]
+
+    # L5 calculation
+    L5 = [1/2 - mu, - 1/2*m.sqrt(3)]
+
+    return L1, L2, L3, L4, L5
+  
+def jacobiCalc(x, y, OP1, OP2):
+
+    r1 = np.sqrt((x+OP1)**2+y**2)
+    r2 = np.sqrt((OP2-x)**2+y**2)
+
+    return x**2 + y**2 + 2*OP2/r1 + 2*OP1/r2
+
+def plot3DPotential(mu, OP1, OP2):
+    
+    LP =  lagrangePoints(mu, OP1, OP2)
+
+    # plot ZVC that run through L1, L2, L3
+    delta = 0.025
+    x = np.arange(-2.0, 2.0, delta)
+    y = np.arange(-2.0, 2.0, delta)
+    X, Y = np.meshgrid(x, y)
+    Z = -jacobiCalc(X, Y, OP1, OP2)
+
+    for i in range(len(Z)):
+        for j in range(len(Z[i])):
+            if Z[i][j] &lt; -7:
+                Z[i][j] = -7
+
+    fig = plt.figure()
+    ax = fig.add_subplot(111, projection=&#39;3d&#39;)
+    ax = plt.gca(projection=&#39;3d&#39;)
+    ax.set_xlim([-2,2])
+    ax.set_ylim([-2,2])
+    ax.set_aspect(&#39;equal&#39;)
+    #plt.axis(&#39;off&#39;)
+    surf = ax.plot_surface(X, Y, Z, cmap=cm.coolwarm, linewidth=0, antialiased=False) # contour for CjL
+    #axes.zaxis.set_major_locator(LinearLocator(10))
+    #axes.zaxis.set_major_formatter(FormatStrFormatter(&#39;%.02f&#39;))
+    fig.colorbar(surf, shrink=0.5, aspect=5)
+
+    z_pos_surface = -2.5
+
+    # massive object
+    ax.scatter(-OP1, 0, z_pos_surface, s=400, color=&#39;r&#39;, marker=&#39;o&#39;, alpha=1)
+    #plt.text(-OP1-0.1, -0.15, r&#39;$m_1$&#39;)
+ 
+    ax.scatter(OP2, 0, z_pos_surface, s=100, color=&#39;g&#39;, marker=&#39;o&#39;, alpha=1)
+    #plt.text(OP2-0.1, -0.15, r&#39;$m_2$&#39;)
+ 
+    ax.scatter(LP[0][0], LP[0][1], z_pos_surface, s= 50, marker=&#39;.&#39;, color=&#39;b&#39;, alpha=0.8)
+    ax.scatter(LP[1][0], LP[1][1], z_pos_surface, s= 50, marker=&#39;.&#39;, color=&#39;b&#39;, alpha=0.8)
+    ax.scatter(LP[2][0], LP[2][1], z_pos_surface, s= 50, marker=&#39;.&#39;, color=&#39;b&#39;, alpha=0.8)
+    ax.scatter(LP[3][0], LP[3][1], z_pos_surface, s= 50, marker=&#39;.&#39;, color=&#39;b&#39;, alpha=0.8)
+    ax.scatter(LP[4][0], LP[4][1], z_pos_surface, s= 50, marker=&#39;.&#39;, color=&#39;b&#39;, alpha=0.8)
+    ax.text(LP[0][0]-0.05, LP[0][1]-0.15, z_pos_surface, r&#39;L$_1$&#39;)
+    ax.text(LP[1][0]+0.05, LP[1][1]-0.05, z_pos_surface, r&#39;L$_2$&#39;)
+    ax.text(LP[2][0]-0.2, LP[2][1]-0.05, z_pos_surface, r&#39;L$_3$&#39;)
+    ax.text(LP[3][0]-0.05, LP[3][1]+0.05, z_pos_surface, r&#39;L$_4$&#39;)
+    ax.text(LP[4][0]-0.05, LP[4][1]-0.15, z_pos_surface, r&#39;L$_5$&#39;)
+
+    plt.title(&#39;ZVC for Lagrange points&#39;)
+
+    plt.show()
+
+def plotLagrange(mu, OP1, OP2):
+    
+    LP =  lagrangePoints(mu, OP1, OP2)
+
+    jacobiConst1 = jacobiCalc(LP[0][0], LP[0][1], OP1, OP2)
+    jacobiConst2 = jacobiCalc(LP[1][0], LP[1][1], OP1, OP2)
+    jacobiConst3 = jacobiCalc(LP[2][0], LP[2][1], OP1, OP2)
+    jacobiConst4 = jacobiCalc(LP[3][0], LP[3][1], OP1, OP2)
+    jacobiConst5 = jacobiCalc(LP[4][0], LP[4][1], OP1, OP2)
+
+    jacobiConstList = [jacobiConst3, jacobiConst2, jacobiConst1]
+    jacobiCilinder = np.sqrt(jacobiConstList)
+    colorsString = [&#39;#1E85B8&#39;, &#39;#E45B5E&#39;, &#39;#E5D7BD&#39;]
+
+    # plot ZVC that run through L1, L2, L3
+    delta = 0.025
+    x = np.arange(-2.0, 2.0, delta)
+    y = np.arange(-2.0, 2.0, delta)
+    X, Y = np.meshgrid(x, y)
+    Z = jacobiCalc(X, Y, OP1, OP2)
+
+    fig, ax = plt.subplots()
+    axes = plt.gca()
+    axes.set_xlim([-2,2])
+    axes.set_ylim([-2,2])
+    ax.set_aspect(&#39;equal&#39;)
+    #plt.axis(&#39;off&#39;)
+    plt.contour(X, Y, Z, jacobiConstList, colors=colorsString) # contour for CjL
+    jacobiCil1 = Circle((0,0), jacobiCilinder[0], color=colorsString[0], fill=False) 
+    jacobiCil2 = Circle((0,0), jacobiCilinder[1], color=colorsString[1], fill=False) 
+    jacobiCil3 = Circle((0,0), jacobiCilinder[2], color=colorsString[2], fill=False) 
+
+    ax.add_artist(jacobiCil1)
+    ax.add_artist(jacobiCil2)
+    ax.add_artist(jacobiCil3)
+
+    # massive object
+    CS = plt.scatter(-OP1, 0, marker=&#39;o&#39;, s=40, color=&#39;r&#39;, alpha=0.7)
+    plt.text(-OP1-0.1, -0.15, r&#39;$m_1$&#39;)
+ 
+    CS = plt.scatter(OP2, 0, marker=&#39;o&#39;, s=20, color=&#39;g&#39;, alpha=0.7)
+    plt.text(OP2-0.1, -0.15, r&#39;$m_2$&#39;)
+ 
+    plt.scatter(LP[0][0], LP[0][1], marker=&#39;.&#39;, color=&#39;b&#39;, alpha=0.8)
+    plt.scatter(LP[1][0], LP[1][1], marker=&#39;.&#39;, color=&#39;b&#39;, alpha=0.8)
+    plt.scatter(LP[2][0], LP[2][1], marker=&#39;.&#39;, color=&#39;b&#39;, alpha=0.8)
+    plt.scatter(LP[3][0], LP[3][1], marker=&#39;.&#39;, color=&#39;b&#39;, alpha=0.8)
+    plt.scatter(LP[4][0], LP[4][1], marker=&#39;.&#39;, color=&#39;b&#39;, alpha=0.8)
+    CS = plt.text(LP[0][0]-0.05, LP[0][1]-0.15, r&#39;L$_1$&#39;)
+    CS = plt.text(LP[1][0]+0.05, LP[1][1]-0.05, r&#39;L$_2$&#39;)
+    CS = plt.text(LP[2][0]-0.2, LP[2][1]-0.05, r&#39;L$_3$&#39;)
+    CS = plt.text(LP[3][0]-0.05, LP[3][1]+0.05, r&#39;L$_4$&#39;)
+    CS = plt.text(LP[4][0]-0.05, LP[4][1]-0.15, r&#39;L$_5$&#39;)
+
+    plt.title(&#39;ZVC for Lagrange points&#39;)
+
+    plt.show()
+
+    # plt.savefig(&#39;ZVCLagrange.png&#39;)  </code></pre>
+</details>
+</section>
+<section>
+</section>
+<section>
+</section>
+<section>
+<h2 class="section-title" id="header-functions">Functions</h2>
+<dl>
+<dt id="astro_equations.support_functions_astro.define_initial_conditions"><code class="name flex">
+<span>def <span class="ident">define_initial_conditions</span></span>(<span>)</span>
+</code></dt>
+<dd>
+<section class="desc"><p>Defines the initial conditions vector</p>
+<p>Input
+Y: state vector for the objects
+t: time vector with the time steps where the ode needs to integrate</p>
+<p>Output
+dY: time derivative of the state vector that needs to be integrated</p></section>
+<details class="source">
+<summary>Source code</summary>
+<pre><code class="python">def define_initial_conditions():
+    &#39;&#39;&#39;Defines the initial conditions vector
+
+    Input
+      Y: state vector for the objects
+      t: time vector with the time steps where the ode needs to integrate
+
+    Output
+      dY: time derivative of the state vector that needs to be integrated
+    &#39;&#39;&#39;
+
+    sc_initial_x = asteroid_initial_pos_and_vel[0]-sun_initial_pos_and_vel[0]+866
+    sc_initial_y = asteroid_initial_pos_and_vel[1]-sun_initial_pos_and_vel[1]+866
+    sc_initial_z = asteroid_initial_pos_and_vel[2]-sun_initial_pos_and_vel[2]+866
+    sc_initial_vx = asteroid_initial_pos_and_vel[3]-sun_initial_pos_and_vel[3]+0.15
+    sc_initial_vy = asteroid_initial_pos_and_vel[4]-sun_initial_pos_and_vel[4]
+    sc_initial_vz = asteroid_initial_pos_and_vel[5]-sun_initial_pos_and_vel[5]
+
+    sc_initial_pos_and_vel = [sc_initial_x, sc_initial_y, sc_initial_z, sc_initial_vx, sc_initial_vy, sc_initial_vz]
+
+    Y0 = [0, 0, 0,          # sun position
+          asteroid_initial_pos_and_vel[0]-sun_initial_pos_and_vel[0], asteroid_initial_pos_and_vel[1]-sun_initial_pos_and_vel[1], asteroid_initial_pos_and_vel[2]-sun_initial_pos_and_vel[2],             # moon position
+          sc_initial_pos_and_vel[0], sc_initial_pos_and_vel[1], sc_initial_pos_and_vel[2],                   # sc position
+          0, 0, 0,       # sun velocity
+          asteroid_initial_pos_and_vel[3]-sun_initial_pos_and_vel[3], asteroid_initial_pos_and_vel[4]-sun_initial_pos_and_vel[4], asteroid_initial_pos_and_vel[5]-sun_initial_pos_and_vel[5],          # moon velocity
+          sc_initial_pos_and_vel[3], sc_initial_pos_and_vel[4], sc_initial_pos_and_vel[5]]                # sc velocity
+
+    return Y0</code></pre>
+</details>
+</dd>
+<dt id="astro_equations.support_functions_astro.distance"><code class="name flex">
+<span>def <span class="ident">distance</span></span>(<span>ref_x, ref_y, ref_z, target_x, target_y, target_z)</span>
+</code></dt>
+<dd>
+<section class="desc"><p>Calculates the distance between target and reference object given the x,y,z cartesian coordinates</p>
+<p>Input
+ref_x: x coordinate of the reference object
+ref_y: y coordinate of the reference object
+ref_z: z coordinate of the reference object
+target_x: x coordinate of the target object
+target_y: y coordinate of the target object
+target_z: z coordinate of the target object</p>
+<p>Output
+d_total: distance between target and reference object</p></section>
+<details class="source">
+<summary>Source code</summary>
+<pre><code class="python">def distance(ref_x, ref_y, ref_z, target_x, target_y, target_z):
+    &#39;&#39;&#39;Calculates the distance between target and reference object given the x,y,z cartesian coordinates
+
+    Input
+      ref_x: x coordinate of the reference object
+      ref_y: y coordinate of the reference object
+      ref_z: z coordinate of the reference object
+      target_x: x coordinate of the target object
+      target_y: y coordinate of the target object
+      target_z: z coordinate of the target object
+
+    Output
+      d_total: distance between target and reference object
+    &#39;&#39;&#39;
+
+    d_total = m.sqrt(m.pow(target_x-ref_x, 2) + m.pow(target_y-ref_y, 2) + m.pow(target_z-ref_z, 2))
+
+    return d_total</code></pre>
+</details>
+</dd>
+<dt id="astro_equations.support_functions_astro.eccentricity"><code class="name flex">
+<span>def <span class="ident">eccentricity</span></span>(<span>pos_x, pos_y, pos_z, vel_x, vel_y, vel_z)</span>
+</code></dt>
+<dd>
+<section class="desc"></section>
+<details class="source">
+<summary>Source code</summary>
+<pre><code class="python">def eccentricity(pos_x, pos_y, pos_z, vel_x, vel_y, vel_z):
+
+    pos_vector = np.array([pos_x, pos_y, pos_z])
+    vel_vector = np.array([vel_x, vel_y, vel_z])
+
+    mag_pos = np.linalg.norm(pos_vector)
+    mag_vel = np.linalg.norm(vel_vector)
+
+    evec_num1 = (mag_vel**2 - (mu_sun / mag_pos)) * pos_vector
+    evec_num2 = np.dot(pos_vector,vel_vector) * vel_vector
+
+    evec =  (evec_num1 - evec_num2) / mu_sun
+
+    return evec</code></pre>
+</details>
+</dd>
+<dt id="astro_equations.support_functions_astro.f_potential"><code class="name flex">
+<span>def <span class="ident">f_potential</span></span>(<span>ref_coord, target_coord, d, mu)</span>
+</code></dt>
+<dd>
+<section class="desc"><p>Calculates the gravity potential energy on an object due to another in the direction referenced by the coordinates</p>
+<p>Input
+ref_coord: coordinate of the reference object in the specific axis
+target_coord: coordinate of the target object in the specific axis
+d: total distance between reference and target object
+mu: mass paramtere of the reference object in SI</p>
+<p>Output
+u: gravity potential energy</p></section>
+<details class="source">
+<summary>Source code</summary>
+<pre><code class="python">def f_potential(ref_coord, target_coord, d, mu):
+    &#39;&#39;&#39;Calculates the gravity potential energy on an object due to another in the direction referenced by the coordinates
+
+    Input
+      ref_coord: coordinate of the reference object in the specific axis
+      target_coord: coordinate of the target object in the specific axis
+      d: total distance between reference and target object
+      mu: mass paramtere of the reference object in SI
+
+    Output
+      u: gravity potential energy
+    &#39;&#39;&#39;
+
+    u = -mu * (target_coord - ref_coord) / (m.pow(d, 3))
+
+    return u</code></pre>
+</details>
+</dd>
+<dt id="astro_equations.support_functions_astro.jacobiCalc"><code class="name flex">
+<span>def <span class="ident">jacobiCalc</span></span>(<span>x, y, OP1, OP2)</span>
+</code></dt>
+<dd>
+<section class="desc"></section>
+<details class="source">
+<summary>Source code</summary>
+<pre><code class="python">def jacobiCalc(x, y, OP1, OP2):
+
+    r1 = np.sqrt((x+OP1)**2+y**2)
+    r2 = np.sqrt((OP2-x)**2+y**2)
+
+    return x**2 + y**2 + 2*OP2/r1 + 2*OP1/r2</code></pre>
+</details>
+</dd>
+<dt id="astro_equations.support_functions_astro.kepler_third_law_omega"><code class="name flex">
+<span>def <span class="ident">kepler_third_law_omega</span></span>(<span>mu, R)</span>
+</code></dt>
+<dd>
+<section class="desc"><p>Calculates the circular angular velocity of an object given the central mass
+parameter and the radius of the orbit</p>
+<p>Input
+mu: central mass paramtere in SI
+R: cicrcular radius of the orbit in SI</p>
+<p>Output
+omega: circular angular velocity in SI</p></section>
+<details class="source">
+<summary>Source code</summary>
+<pre><code class="python">def kepler_third_law_omega(mu, R):
+    &#39;&#39;&#39;Calculates the circular angular velocity of an object given the central mass
+    parameter and the radius of the orbit
+
+    Input
+      mu: central mass paramtere in SI
+      R: cicrcular radius of the orbit in SI
+
+    Output
+      omega: circular angular velocity in SI
+    &#39;&#39;&#39;
+
+    omega = m.sqrt(mu/R**3)
+
+    return omega</code></pre>
+</details>
+</dd>
+<dt id="astro_equations.support_functions_astro.lagrangePoints"><code class="name flex">
+<span>def <span class="ident">lagrangePoints</span></span>(<span>mu, OP1, OP2)</span>
+</code></dt>
+<dd>
+<section class="desc"></section>
+<details class="source">
+<summary>Source code</summary>
+<pre><code class="python">def lagrangePoints(mu, OP1, OP2):
+
+    # L1 calculation
+    coefL1 = [1, 4*mu - 2, 6*mu**2 - 6*mu +1, 4*mu**3 - 6*mu**2 + 4*mu - 1, mu**4 - 2*mu**3 + 5*mu**2 -4*mu + 2, 2*mu**3 - 3*mu**2 + 3*mu - 1]
+    L1roots = np.roots(coefL1) 
+    L1 = [0,0]
+    for i in L1roots:
+        if np.isreal(i):
+            L1 = [i.real,0]
+
+    # L2 calculation
+    coefL2 = [1, 4*mu - 2, 6*mu**2 - 6*mu +1, 4*mu**3 - 6*mu**2 + 2*mu - 1, mu**4 - 2*mu**3 + mu**2 -4*mu + 2, 3*mu - 3*mu**2 - 1]
+    L2roots = np.roots(coefL2) 
+    L2 = [0,0]
+    for i in L2roots:
+        if np.isreal(i):
+            L2 = [i.real,0]
+
+    # L3 calculation
+    coefL3 = [1, 4*mu - 2, 6*mu**2 - 6*mu +1, 4*mu**3 - 6*mu**2 + 2*mu + 1, mu**4 - 2*mu**3 + mu**2 +4*mu - 2, 3*mu**2 - 3*mu + 1]
+    L3roots = np.roots(coefL3) 
+    L3 = [0,0]
+    for i in L3roots:
+        if np.isreal(i):
+            L3 = [i.real,0]
+
+    # L4 calculation
+    L4 = [1/2 - mu, 1/2*m.sqrt(3)]
+
+    # L5 calculation
+    L5 = [1/2 - mu, - 1/2*m.sqrt(3)]
+
+    return L1, L2, L3, L4, L5</code></pre>
+</details>
+</dd>
+<dt id="astro_equations.support_functions_astro.plot3DPotential"><code class="name flex">
+<span>def <span class="ident">plot3DPotential</span></span>(<span>mu, OP1, OP2)</span>
+</code></dt>
+<dd>
+<section class="desc"></section>
+<details class="source">
+<summary>Source code</summary>
+<pre><code class="python">def plot3DPotential(mu, OP1, OP2):
+    
+    LP =  lagrangePoints(mu, OP1, OP2)
+
+    # plot ZVC that run through L1, L2, L3
+    delta = 0.025
+    x = np.arange(-2.0, 2.0, delta)
+    y = np.arange(-2.0, 2.0, delta)
+    X, Y = np.meshgrid(x, y)
+    Z = -jacobiCalc(X, Y, OP1, OP2)
+
+    for i in range(len(Z)):
+        for j in range(len(Z[i])):
+            if Z[i][j] &lt; -7:
+                Z[i][j] = -7
+
+    fig = plt.figure()
+    ax = fig.add_subplot(111, projection=&#39;3d&#39;)
+    ax = plt.gca(projection=&#39;3d&#39;)
+    ax.set_xlim([-2,2])
+    ax.set_ylim([-2,2])
+    ax.set_aspect(&#39;equal&#39;)
+    #plt.axis(&#39;off&#39;)
+    surf = ax.plot_surface(X, Y, Z, cmap=cm.coolwarm, linewidth=0, antialiased=False) # contour for CjL
+    #axes.zaxis.set_major_locator(LinearLocator(10))
+    #axes.zaxis.set_major_formatter(FormatStrFormatter(&#39;%.02f&#39;))
+    fig.colorbar(surf, shrink=0.5, aspect=5)
+
+    z_pos_surface = -2.5
+
+    # massive object
+    ax.scatter(-OP1, 0, z_pos_surface, s=400, color=&#39;r&#39;, marker=&#39;o&#39;, alpha=1)
+    #plt.text(-OP1-0.1, -0.15, r&#39;$m_1$&#39;)
+ 
+    ax.scatter(OP2, 0, z_pos_surface, s=100, color=&#39;g&#39;, marker=&#39;o&#39;, alpha=1)
+    #plt.text(OP2-0.1, -0.15, r&#39;$m_2$&#39;)
+ 
+    ax.scatter(LP[0][0], LP[0][1], z_pos_surface, s= 50, marker=&#39;.&#39;, color=&#39;b&#39;, alpha=0.8)
+    ax.scatter(LP[1][0], LP[1][1], z_pos_surface, s= 50, marker=&#39;.&#39;, color=&#39;b&#39;, alpha=0.8)
+    ax.scatter(LP[2][0], LP[2][1], z_pos_surface, s= 50, marker=&#39;.&#39;, color=&#39;b&#39;, alpha=0.8)
+    ax.scatter(LP[3][0], LP[3][1], z_pos_surface, s= 50, marker=&#39;.&#39;, color=&#39;b&#39;, alpha=0.8)
+    ax.scatter(LP[4][0], LP[4][1], z_pos_surface, s= 50, marker=&#39;.&#39;, color=&#39;b&#39;, alpha=0.8)
+    ax.text(LP[0][0]-0.05, LP[0][1]-0.15, z_pos_surface, r&#39;L$_1$&#39;)
+    ax.text(LP[1][0]+0.05, LP[1][1]-0.05, z_pos_surface, r&#39;L$_2$&#39;)
+    ax.text(LP[2][0]-0.2, LP[2][1]-0.05, z_pos_surface, r&#39;L$_3$&#39;)
+    ax.text(LP[3][0]-0.05, LP[3][1]+0.05, z_pos_surface, r&#39;L$_4$&#39;)
+    ax.text(LP[4][0]-0.05, LP[4][1]-0.15, z_pos_surface, r&#39;L$_5$&#39;)
+
+    plt.title(&#39;ZVC for Lagrange points&#39;)
+
+    plt.show()</code></pre>
+</details>
+</dd>
+<dt id="astro_equations.support_functions_astro.plotLagrange"><code class="name flex">
+<span>def <span class="ident">plotLagrange</span></span>(<span>mu, OP1, OP2)</span>
+</code></dt>
+<dd>
+<section class="desc"></section>
+<details class="source">
+<summary>Source code</summary>
+<pre><code class="python">def plotLagrange(mu, OP1, OP2):
+    
+    LP =  lagrangePoints(mu, OP1, OP2)
+
+    jacobiConst1 = jacobiCalc(LP[0][0], LP[0][1], OP1, OP2)
+    jacobiConst2 = jacobiCalc(LP[1][0], LP[1][1], OP1, OP2)
+    jacobiConst3 = jacobiCalc(LP[2][0], LP[2][1], OP1, OP2)
+    jacobiConst4 = jacobiCalc(LP[3][0], LP[3][1], OP1, OP2)
+    jacobiConst5 = jacobiCalc(LP[4][0], LP[4][1], OP1, OP2)
+
+    jacobiConstList = [jacobiConst3, jacobiConst2, jacobiConst1]
+    jacobiCilinder = np.sqrt(jacobiConstList)
+    colorsString = [&#39;#1E85B8&#39;, &#39;#E45B5E&#39;, &#39;#E5D7BD&#39;]
+
+    # plot ZVC that run through L1, L2, L3
+    delta = 0.025
+    x = np.arange(-2.0, 2.0, delta)
+    y = np.arange(-2.0, 2.0, delta)
+    X, Y = np.meshgrid(x, y)
+    Z = jacobiCalc(X, Y, OP1, OP2)
+
+    fig, ax = plt.subplots()
+    axes = plt.gca()
+    axes.set_xlim([-2,2])
+    axes.set_ylim([-2,2])
+    ax.set_aspect(&#39;equal&#39;)
+    #plt.axis(&#39;off&#39;)
+    plt.contour(X, Y, Z, jacobiConstList, colors=colorsString) # contour for CjL
+    jacobiCil1 = Circle((0,0), jacobiCilinder[0], color=colorsString[0], fill=False) 
+    jacobiCil2 = Circle((0,0), jacobiCilinder[1], color=colorsString[1], fill=False) 
+    jacobiCil3 = Circle((0,0), jacobiCilinder[2], color=colorsString[2], fill=False) 
+
+    ax.add_artist(jacobiCil1)
+    ax.add_artist(jacobiCil2)
+    ax.add_artist(jacobiCil3)
+
+    # massive object
+    CS = plt.scatter(-OP1, 0, marker=&#39;o&#39;, s=40, color=&#39;r&#39;, alpha=0.7)
+    plt.text(-OP1-0.1, -0.15, r&#39;$m_1$&#39;)
+ 
+    CS = plt.scatter(OP2, 0, marker=&#39;o&#39;, s=20, color=&#39;g&#39;, alpha=0.7)
+    plt.text(OP2-0.1, -0.15, r&#39;$m_2$&#39;)
+ 
+    plt.scatter(LP[0][0], LP[0][1], marker=&#39;.&#39;, color=&#39;b&#39;, alpha=0.8)
+    plt.scatter(LP[1][0], LP[1][1], marker=&#39;.&#39;, color=&#39;b&#39;, alpha=0.8)
+    plt.scatter(LP[2][0], LP[2][1], marker=&#39;.&#39;, color=&#39;b&#39;, alpha=0.8)
+    plt.scatter(LP[3][0], LP[3][1], marker=&#39;.&#39;, color=&#39;b&#39;, alpha=0.8)
+    plt.scatter(LP[4][0], LP[4][1], marker=&#39;.&#39;, color=&#39;b&#39;, alpha=0.8)
+    CS = plt.text(LP[0][0]-0.05, LP[0][1]-0.15, r&#39;L$_1$&#39;)
+    CS = plt.text(LP[1][0]+0.05, LP[1][1]-0.05, r&#39;L$_2$&#39;)
+    CS = plt.text(LP[2][0]-0.2, LP[2][1]-0.05, r&#39;L$_3$&#39;)
+    CS = plt.text(LP[3][0]-0.05, LP[3][1]+0.05, r&#39;L$_4$&#39;)
+    CS = plt.text(LP[4][0]-0.05, LP[4][1]-0.15, r&#39;L$_5$&#39;)
+
+    plt.title(&#39;ZVC for Lagrange points&#39;)
+
+    plt.show()</code></pre>
+</details>
+</dd>
+<dt id="astro_equations.support_functions_astro.three_body"><code class="name flex">
+<span>def <span class="ident">three_body</span></span>(<span>Y, t)</span>
+</code></dt>
+<dd>
+<section class="desc"><p>Main function for the restricted 3 body problem to numerically integrate</p>
+<p>Input
+Y: state vector for the objects
+t: time vector with the time steps where the ode needs to integrate</p>
+<p>Output
+dY: time derivative of the state vector that needs to be integrated</p></section>
+<details class="source">
+<summary>Source code</summary>
+<pre><code class="python">def three_body(Y, t):
+    &#39;&#39;&#39;Main function for the restricted 3 body problem to numerically integrate
+
+    Input
+      Y: state vector for the objects
+      t: time vector with the time steps where the ode needs to integrate
+
+    Output
+      dY: time derivative of the state vector that needs to be integrated
+    &#39;&#39;&#39;
+
+    dY = [0 for i in range(18)]
+
+    # Sun position
+    dY[0] = Y[9]
+    dY[1] = Y[10]
+    dY[2] = Y[11]
+
+    # Asteroid position
+    dY[3] = Y[12]
+    dY[4] = Y[13]
+    dY[5] = Y[14]
+
+    # Spacecraft position
+    dY[6] = Y[15]
+    dY[7] = Y[16]
+    dY[8] = Y[17]
+
+    # distances between objects
+    r_sun_asteroid = distance(Y[0], Y[1], Y[2], Y[3], Y[4], Y[5])
+    r_sun_sc = distance(Y[0], Y[1], Y[2], Y[6], Y[7], Y[8])
+    r_asteroid_sc = distance(Y[3], Y[4], Y[5], Y[6], Y[7], Y[8])
+
+    # Sun velocity
+    dY[9] = 0
+    dY[10] = 0
+    dY[11] = 0
+    #dY[9] = f_potential(Y[3], Y[0], r_sun_asteroid, mu_asteroid)
+    #dY[10] = f_potential(Y[4], Y[1], r_sun_asteroid, mu_asteroid)
+    #dY[11] = f_potential(Y[5], Y[2], r_sun_asteroid, mu_asteroid)
+
+    # Asteroid velocity
+    dY[12] = f_potential(Y[0], Y[3], r_sun_asteroid, mu_sun)
+    dY[13] = f_potential(Y[1], Y[4], r_sun_asteroid, mu_sun)
+    dY[14] = f_potential(Y[2], Y[5], r_sun_asteroid, mu_sun)
+
+    # Spacecraft velocity
+    #dY[15] = 0
+    #dY[16] = 0
+    #dY[17] = 0
+    dY[15] = f_potential(Y[0], Y[6], r_sun_sc, mu_sun) + f_potential(Y[3], Y[6], r_asteroid_sc, mu_asteroid)
+    dY[16] = f_potential(Y[1], Y[7], r_sun_sc, mu_sun) + f_potential(Y[4], Y[7], r_asteroid_sc, mu_asteroid)
+    dY[17] = f_potential(Y[2], Y[8], r_sun_sc, mu_sun) + f_potential(Y[5], Y[8], r_asteroid_sc, mu_asteroid)
+
+    return dY</code></pre>
+</details>
+</dd>
+</dl>
+</section>
+<section>
+</section>
+</article>
+<nav id="sidebar">
+<h1>Index</h1>
+<div class="toc">
+<ul></ul>
+</div>
+<ul id="index">
+<li><h3>Super-module</h3>
+<ul>
+<li><code><a title="astro_equations" href="index.html">astro_equations</a></code></li>
+</ul>
+</li>
+<li><h3><a href="#header-functions">Functions</a></h3>
+<ul class="">
+<li><code><a title="astro_equations.support_functions_astro.define_initial_conditions" href="#astro_equations.support_functions_astro.define_initial_conditions">define_initial_conditions</a></code></li>
+<li><code><a title="astro_equations.support_functions_astro.distance" href="#astro_equations.support_functions_astro.distance">distance</a></code></li>
+<li><code><a title="astro_equations.support_functions_astro.eccentricity" href="#astro_equations.support_functions_astro.eccentricity">eccentricity</a></code></li>
+<li><code><a title="astro_equations.support_functions_astro.f_potential" href="#astro_equations.support_functions_astro.f_potential">f_potential</a></code></li>
+<li><code><a title="astro_equations.support_functions_astro.jacobiCalc" href="#astro_equations.support_functions_astro.jacobiCalc">jacobiCalc</a></code></li>
+<li><code><a title="astro_equations.support_functions_astro.kepler_third_law_omega" href="#astro_equations.support_functions_astro.kepler_third_law_omega">kepler_third_law_omega</a></code></li>
+<li><code><a title="astro_equations.support_functions_astro.lagrangePoints" href="#astro_equations.support_functions_astro.lagrangePoints">lagrangePoints</a></code></li>
+<li><code><a title="astro_equations.support_functions_astro.plot3DPotential" href="#astro_equations.support_functions_astro.plot3DPotential">plot3DPotential</a></code></li>
+<li><code><a title="astro_equations.support_functions_astro.plotLagrange" href="#astro_equations.support_functions_astro.plotLagrange">plotLagrange</a></code></li>
+<li><code><a title="astro_equations.support_functions_astro.three_body" href="#astro_equations.support_functions_astro.three_body">three_body</a></code></li>
+</ul>
+</li>
+</ul>
+</nav>
+</main>
+<footer id="footer">
+<p>Generated by <a href="https://pdoc3.github.io/pdoc"><cite>pdoc</cite> 0.6.3</a>.</p>
+</footer>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+<script>hljs.initHighlightingOnLoad()</script>
+</body>
+</html>
