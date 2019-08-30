@@ -27,8 +27,10 @@ iss_mean_distance = 405000
 
 # Dimensionless variables for 3BP
 #mu = 0.2
-#mu = 3.04042*10**(-6) # Sun-(Earth+Moon)
-mu = 0.0123  # Earth+Moon
+mu = 3.04042*10**(-6) # Sun-(Earth+Moon)
+#mu = 0.0123  # Earth+Moon
+e = 0.054   # Earth+Moon
+e = 0.01674 # Sun-(Earth+Moon)
 
 OP1 = mu
 OP2 = 1 - mu

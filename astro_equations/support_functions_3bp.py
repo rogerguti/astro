@@ -118,7 +118,7 @@ def potential_dU(coord, Y, mu):
 
     elif coord == 'z':
 
-        du = -(1 - mu) * Y[2] / (distance(
+        du = Y[2] - (1 - mu) * Y[2] / (distance(
             'main', Y, mu)**3) - mu * Y[2] / (distance('secondary', Y, mu)**3)
 
     return du
@@ -136,7 +136,7 @@ def state_vector_CR3BP(t, Y):
     """
 
     dY = [0 for i in range(6)]
-
+    
     # Spacecraft position in rotating frame
     dY[0] = Y[3]
     dY[1] = Y[4]
@@ -145,7 +145,32 @@ def state_vector_CR3BP(t, Y):
     # Spacecraft velocity
     dY[3] = 2 * Y[4] + potential_dU('x', Y, mu)
     dY[4] = -2 * Y[3] + potential_dU('y', Y, mu)
-    dY[5] = potential_dU('z', Y, mu)
+    dY[5] = -Y[2] + potential_dU('z', Y, mu)
+
+    return dY
+
+def state_vector_ER3BP(f, Y):
+    """ODE for the elliptic restricted 3 body problem to numerically integrate.
+
+    Args:
+      Y: State vector for the objects.
+      f: True anomaly vector with the true anomaly steps where the ode needs to integrate.
+
+    Returns:
+      dY: Derivative respect to the true anomaly of the state vector that needs to be integrated.
+    """
+
+    dY = [0 for i in range(6)]
+
+    # Spacecraft position in rotating frame
+    dY[0] = Y[3]
+    dY[1] = Y[4]
+    dY[2] = Y[5]
+
+    # Spacecraft velocity
+    dY[3] = 2 * Y[4] + (1 / (e * np.cos(f)) * potential_dU('x', Y, mu)
+    dY[4] = -2 * Y[3] + (1 / (e * np.cos(f)) * potential_dU('y', Y, mu)
+    dY[5] = -Y[2] + (1 / (e * np.cos(f)) * potential_dU('z', Y, mu)
 
     return dY
 
