@@ -136,7 +136,7 @@ def state_vector_CR3BP(t, Y):
     """
 
     dY = [0 for i in range(6)]
-    
+
     # Spacecraft position in rotating frame
     dY[0] = Y[3]
     dY[1] = Y[4]
@@ -148,6 +148,7 @@ def state_vector_CR3BP(t, Y):
     dY[5] = -Y[2] + potential_dU('z', Y, mu)
 
     return dY
+
 
 def state_vector_ER3BP(f, Y):
     """ODE for the elliptic restricted 3 body problem to numerically integrate.
@@ -168,9 +169,9 @@ def state_vector_ER3BP(f, Y):
     dY[2] = Y[5]
 
     # Spacecraft velocity
-    dY[3] = 2 * Y[4] + (1 / (e * np.cos(f)) * potential_dU('x', Y, mu)
-    dY[4] = -2 * Y[3] + (1 / (e * np.cos(f)) * potential_dU('y', Y, mu)
-    dY[5] = -Y[2] + (1 / (e * np.cos(f)) * potential_dU('z', Y, mu)
+    dY[3] = 2 * Y[4] + (1 / (e * np.cos(f))) * potential_dU('x', Y, mu)
+    dY[4] = -2 * Y[3] + (1 / (e * np.cos(f))) * potential_dU('y', Y, mu)
+    dY[5] = -Y[2] + (1 / (e * np.cos(f))) * potential_dU('z', Y, mu)
 
     return dY
 
@@ -209,16 +210,45 @@ def define_initial_conditions(mu):
         axis=None)  # SC position and velocity in rotating frame
 
     timeSpan = [0, int(integration_time / adimTime)]
+    #timeSpan = [0, np.pi]
     timePoints = np.linspace(timeSpan[0], timeSpan[1], 15000)
 
     boolLagrange = False
-    boolZVC = True
+    boolZVC = False
     boolAnimation = [
         False, True, 'Comet', 'Inertial'
     ]  # Animation True/False, Save True/False, Type Standard/Comet, Ref.Frame
     # Rotating/Inertial
 
     return Y0, timeSpan, timePoints, boolZVC, boolLagrange, boolAnimation
+
+
+def event_clash_with_primary(t, Y):
+    """Event function for the ODE integration on a R3BP which triggers when the SC clashes into the primary body.
+
+    Args:
+      Y: State vector for the objects.
+      t: Time vector with the time steps where the ode needs to integrate.
+
+    Returns:
+      distance_from_surface: Distance of the SC from the surface of the primary.
+    """
+
+    return distance('main', Y, mu) - primary_radius
+
+
+def event_clash_with_secondary(t, Y):
+    """Event function for the ODE integration on a R3BP which triggers when the SC clashes into the secondary body.
+
+    Args:
+      Y: State vector for the objects.
+      t: Time vector with the time steps where the ode needs to integrate.
+
+    Returns:
+      distance_from_surface: Distance of the SC from the surface of the secondary.
+    """
+
+    return distance('secondary', Y, mu) - secondary_radius
 
 
 def eccentricity(pos_x, pos_y, pos_z, vel_x, vel_y, vel_z):
@@ -340,7 +370,7 @@ def plot_3D_potential(mu, mainPos, secondaryPos, **kwargs):
     secondaryPos[2] = massiveObjectsHeight
 
     if makeFigure == True:
-        fig, ax = prepare_plot_CR3BP(mainPos, secondaryPos, bool3D=True)
+        fig, ax = prepare_plot(mainPos, secondaryPos, bool3D=True)
 
     if boolLagrange == True:
         LP = plot_lagrange(mu,
@@ -390,7 +420,7 @@ def plot_zero_velocity_curves(mu, mainPos, secondaryPos, **kwargs):
     X, Y, Z = prepare_mesh_plot()
 
     if makeFigure == True:
-        fig, ax = prepare_plot_CR3BP(mainPos, secondaryPos)
+        fig, ax = prepare_plot(mainPos, secondaryPos)
 
     if boolLagrange == True:
         LP = plot_lagrange(mu, mainPos, secondaryPos)
@@ -449,7 +479,7 @@ def plot_lagrange(mu, mainPos, secondaryPos, **kwargs):
     LP = calculate_lagrange_points(mu)
 
     if makeFigure == True:
-        fig, ax = prepare_plot_CR3BP(mainPos, secondaryPos)
+        fig, ax = prepare_plot(mainPos, secondaryPos)
 
     if objectsHeight3D == None:
         plt.scatter(LP[0, 0],
@@ -569,7 +599,7 @@ def plot_CR3BP(mu, mainPos, secondaryPos, scStateVector, t_points, **kwargs):
     boolAnimation = kwargs.get('boolAnimation',
                                [False, False, 'Standard', 'Rotating'])
 
-    fig, ax = prepare_plot_CR3BP(mainPos, secondaryPos)
+    fig, ax = prepare_plot(mainPos, secondaryPos)
 
     if boolZVC == True:
         plot_zero_velocity_curves(mu,
@@ -634,8 +664,8 @@ def plot_CR3BP(mu, mainPos, secondaryPos, scStateVector, t_points, **kwargs):
     return resultPlot
 
 
-def prepare_plot_CR3BP(mainPos, secondaryPos, **kwargs):
-    """Prepares the axis and fig part of the CR3BP plots.
+def prepare_plot(mainPos, secondaryPos, **kwargs):
+    """Prepares the axis and fig part of the CR3BP and ER3BP plots.
 
     Args:
       mainPos: Position of the main, XYZ.
@@ -795,7 +825,8 @@ def plot_animation(fig, ax, mainPos, secondaryPos, scStateVector, t_points,
     return resultPlot
 
 
-def inertial_to_rotating_system(objectPositionInertial, angVel_system, t):
+def inertial_to_rotating_system_CR3BP(objectPositionInertial, angVel_system,
+                                      t):
     """Transforms the coordinates of an object in the CR3BP from the inertial 
     frame to the rotating.
   
@@ -835,7 +866,28 @@ def inertial_to_rotating_system(objectPositionInertial, angVel_system, t):
     return objectPositionRotating
 
 
-def rotating_to_inertial_system(objectPositionRotating, angVel_system, t):
+def inertial_to_rotating_system_ER3BP(objectPositionInertial, angVel_system,
+                                      t):
+    """Transforms the coordinates of an object in the ER3BP from the inertial 
+    frame to the rotating.
+    WIP
+
+    Args:
+      objectPositionInertial: Coordinates of the object in the inertial frame, 
+        XYZ and time.
+      angVel_system: Angular velocity of the 2-body system.
+      t: Time where the coordinates are.
+  
+    Returns:
+      objectPositionRotating: Coordinates of the object in the rotating frame, 
+        XYZ and time.
+    """
+
+    return void
+
+
+def rotating_to_inertial_system_CR3BP(objectPositionRotating, angVel_system,
+                                      t):
     """Transforms the coordinates of an object in the CR3BP from the rotating 
     frame to the inertial.
   
@@ -873,6 +925,26 @@ def rotating_to_inertial_system(objectPositionRotating, angVel_system, t):
                     C.T, objectPositionRotating[3:6, timePoint])[:]
 
     return objectPositionInertial
+
+
+def rotating_to_inertial_system_ER3BP(objectPositionRotating, angVel_system,
+                                      t):
+    """Transforms the coordinates of an object in the ER3BP from the rotating 
+    frame to the inertial.
+    WIP
+  
+    Args:
+      objectPositionRotating: Coordinates of the object in the rotating frame, 
+        XYZ and time.
+      angVel_system: Angular velocity of the 2-body system.
+      t: Time where the coordinates are.
+  
+    Returns:
+      objectPositionInertial: Coordinates of the object in the inertial frame, 
+        XYZ and time.
+    """
+
+    return void
 
 
 def time_converter(time, currentUnit, objectiveUnit):

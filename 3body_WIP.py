@@ -39,6 +39,7 @@ orbit = solve_ivp(state_vector_CR3BP,
                   Y0,
                   method='RK45',
                   t_eval=timePoints,
+                  events=[event_clash_with_primary, event_clash_with_secondary],
                   rtol=1e-12,
                   atol=1e-12)
 

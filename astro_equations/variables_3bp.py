@@ -8,6 +8,7 @@ Groups all variables and constants used for astrodynamics calculations
 """
 
 import numpy as np
+import pykep as pk
 
 # General variables
 astronomical_unit = 149597870700  # m
@@ -15,6 +16,8 @@ G = 6.672 * 10**(-11)  # gravitational constant m3 kg-1 s-2
 
 # Specific variables for space
 earth_radius = 6371000
+moon_radius = 1737100
+sun_radius = 695700000
 
 m_sun = 1.9885 * 10**30  # Sun kg
 m_earth = 5.97237 * 10**24  # Earth kg
@@ -27,9 +30,9 @@ iss_mean_distance = 405000
 
 # Dimensionless variables for 3BP
 #mu = 0.2
-mu = 3.04042*10**(-6) # Sun-(Earth+Moon)
-#mu = 0.0123  # Earth+Moon
-e = 0.054   # Earth+Moon
+#mu = 3.04042*10**(-6) # Sun-(Earth+Moon)
+mu = 0.0123  # Earth+Moon
+#e = 0.054   # Earth+Moon
 e = 0.01674 # Sun-(Earth+Moon)
 
 OP1 = mu
@@ -46,7 +49,6 @@ rot_PrimaryPos = np.array([-OP1, 0, 0])
 rot_SecondaryPos = np.array([OP2, 0, 0])
 
 # Variables to adimensionalize other values
-
 distanceBetweenPrimarySecondary = moon_mean_distance
 sum_of_masses = m_earth + m_moon
 angVel_system = np.sqrt(
@@ -59,3 +61,7 @@ adimMass = sum_of_masses
 adimVel = adimLength / adimTime
 
 adimAngVel = 1
+
+# Variables for the R3BP
+primary_radius = earth_radius/adimLength
+secondary_radius = moon_radius/adimLength
